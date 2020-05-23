@@ -65,7 +65,10 @@ client.on("message", async message => {
         command.run(client, message, args);
 
 });
-
+//errors logging to prevent complete crashes//
+client.on("error", (e) => console.error(e));
+client.on("warn", (e) => console.warn(e));
+client.on("debug", (e) => console.info(e));
 
 //Logging the bot in//
 client.login(process.env.TOKEN);
