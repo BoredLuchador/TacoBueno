@@ -9,29 +9,37 @@ module.exports = {
     run: async (client, message ,args) => {
         if (message.deletable) message.delete();
 
-        let rMember = message.mentions.member.first() || message.guild.members.get(args[0]);
+        let User = message.mentions.users.first()||null
 
-        if (!rMember)
-            return message.reply("Couldn't find the person who you're looking for");
+        if (User == null) {
+            return message.channel.send(`You did not mention a user!`)
+        } else {
+            let Reason = args.slice(0).join(" ")||null
+            if (Reason == null) {
+                return message.channel.send(`You did not specify a reason for the report!`)
+            }
 
-        if (!args[1])
-            return message.reply("Next time, actually add a reason?");
+            let Avatar = User.displayAvatarURL({ format: "png", dynamic: true})
+            let Channel = message.guild.channels.cache.find(ch=>ch.name.includes("reports"))
+            if (!Channel) return message.channel.send(`There is no channel in this guild which is called \`reports\``) 
 
-        const channel = message.guild.channels.find(channel => channel.name === "report");
-
-        if (!channel)
-            return message.channel.send("I can't find a \`#reports\` channel");
-
-        const embed = new Discord.MessageEmbed()
-            .setColor("#e83015")
-            .setTimestamp()
-            .setFooter(message.guild.name, message.guild.iconURL)
-            .setAuthor("reported member", rMember.user.displayAvatarURl)
-            .setDescription(stripIndents`**> Member:** ${rMember} (${rMember.id})
-            **> Reported by:** ${message.member} (${message.member.id})
-            **> Reported in:** ${message.channel} 
-            **> Reason:** ${args.slice(1).join(" ")}`);
-
-        return channel.send(embed);
+            let Embed = new Discord.MessageEmbed()
+            .setTitle(`New report!`)
+            .setDescription(`The user \`${message.author.tag}\` has reported \`${User.tag}\`! `)
+            .setColor(`RANDOM`)
+            .setThumbnail(Avatar)
+            .addFields(
+                {name:"User ID",value:`${message.author.id}`,inline:true},
+                {name:"User Tag",value:`${message.author.tag}`,inline:true},
+                {name:"Reported ID",value:`${User.id}`,inline:true},
+                {name:"Reported Tag",value:`${User.tag}`,inline:true},
+                {name:"Reason",value:`\`${Reason.slice(1)}\``,inline:true},
+                {name:"Date (M/D/Y)",value:`${new Intl.DateTimeFormat("en-US").format(Date.now())}`,inline:true},
+            )
+            Channel.send(Embed)
+        }
+        
     }
 }
+
+//NOTE THAT VARIABLE USER IS THE PERSON YOU ARE REPORTING//

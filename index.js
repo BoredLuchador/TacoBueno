@@ -62,13 +62,19 @@ client.on("message", async message => {
     if (!command) command = client.commands.get(client.aliases.get(cmd));
 
     if (command)
-        command.run(client, message, args);
+        command.run (client, message, args);
 
 });
-//errors logging to prevent complete crashes//
+//errors logging to prevent complete crashes (also moninters bot health)//
 client.on("error", (e) => console.error(e));
 client.on("warn", (e) => console.warn(e));
 client.on("debug", (e) => console.info(e));
+
+//HOW TO COMMIT CHANGES
+//$ git add .
+//$ git commit -am "make it better"
+//$ git push heroku master
+
 
 //Logging the bot in//
 client.login(process.env.TOKEN);
