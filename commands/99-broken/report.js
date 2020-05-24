@@ -4,7 +4,7 @@ const {stripIndents} = require("common-tags");
 module.exports = { 
     name: "report",
     category: "broken",
-    description: "Reports people. what else did you expect? (broken)",
+    description: "Reports people. What else did you expect?",
     usage: "<mention | id>",
     run: async (client, message ,args) => {
         if (message.deletable) message.delete();
@@ -14,7 +14,7 @@ module.exports = {
         if (User == null) {
             return message.channel.send(`You did not mention a user!`)
         } else {
-            let Reason = args.slice(0).join(" ")||null
+            let Reason = args.slice(1).join(" ")||null
             if (Reason == null) {
                 return message.channel.send(`You did not specify a reason for the report!`)
             }
@@ -33,7 +33,7 @@ module.exports = {
                 {name:"User Tag",value:`${message.author.tag}`,inline:true},
                 {name:"Reported ID",value:`${User.id}`,inline:true},
                 {name:"Reported Tag",value:`${User.tag}`,inline:true},
-                {name:"Reason",value:`\`${Reason.slice(1)}\``,inline:true},
+                {name:"Reason",value:`\`${Reason.slice(0)}\``,inline:true},
                 {name:"Date (M/D/Y)",value:`${new Intl.DateTimeFormat("en-US").format(Date.now())}`,inline:true},
             )
             Channel.send(Embed)
