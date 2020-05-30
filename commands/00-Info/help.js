@@ -23,3 +23,4 @@ const embed = new Discord.MessageEmbed()
      message.channel.send(embed);
      }
 }
+//NOTE THAT THIS COMMAND IS NOT DYNAMIC YET
