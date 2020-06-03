@@ -1,53 +1,49 @@
-const { getMember, formatDate } = require("../../functions.js");
-const Discord = require("discord.js");
-const { stripIndents } = require("common-tags");
+const { MessageEmbed } = require('discord.js');
 
-//TypeError: Cannot read property 'roles' of undefined at Object.run//
-//broken command//
+// STATE OF WHOIS COMMAND = BROKEN AND UNDER LIMBO
+
 module.exports = {
-    name: "whois",
-    aliases: ["userinfo", "user", "who",],
-    category: "broken",
-    description: "Returns user infomation/n*Currently the command is broken*",
-    usage: "[username | id, | mention]",
-    run: async (client, message, args) => {
-        const GuildMember = getMember(message, args.join(" "));
+	name: 'whois',
+	aliases: ['userinfo', 'user', 'who' ],
+	category: 'broken',
+	description: 'Returns user infomation/n*Currently the command is broken*',
+	usage: '[id | mention]',
+	run: async (client, message) => {
 
-        // Member variables//
-        const joined = formatDate(GuildMember.joinedAt);
-        const roles = GuildMember.roles
-            .roles.filter(r => r.id !== message.guild.id)
-            .map(r => r)
-            .join("' ") || "none";
 
-        // USER VARIABLES //
-        const created = formatDate(GuildMember.user.createdAt);
+		let GuildMember = message.mentions.users.first() || null;
+		let User = message.mentions.users.first() || null;
 
-        const embed = new Discord.MessageEmbed()
-            .setFooter(GuildMember.displayName, GuildMember.user.displayAvatarURL)
-            .setThumbnail(GuildMember.user.displayAvatarURL)
-            .setColor(GuildMember.displayHexColor === "#000000" ? "#ffffff" : GuildMember.displayHexColor)
+		if (GuildMember == null || User == null) {
+			return message.channel.send('You did not mention a user!');
+		}
+		else {
 
-            .addField('Member infomation', stripIndents`**> Display name:** ${GuildMember.displayName}
-            **> Joined at:** ${joined}
-            ** Roles:** ${roles}`, true)
+			// const date = User.createdAt
+			const pfp = User.displayAvatarURL({ format: 'png', dynamic: true });
 
-            .addField('User infomation', stripIndents`**> Display name:** ${GuildMember.displayName}
-            **> Joined at:** ${joined}
-            **>roles: ${roles}`, true)
 
-            .addField('User Infomation', stripIndents`**> ID:** ${GuildMember.user.id}
-            **> Username:** ${GuildMember.user.username}
-            **> Discord Tag:** ${GuildMember.user.tag}
-            **> Created at:** ${created}`, true)
+			const embed = new MessageEmbed()
 
-            .setTimestamp()
+				.setTitle(`${GuildMember.username}`)
+				.setDescription('Info on the mentioned user')
+				.setColor(`${GuildMember.displayColor}`)
+				.setThumbnail(pfp)
+				.addFields(
+					{ name:'User ID', value:`${User.id}`, inline:true },
+					{ name:'User Tag', value:`${GuildMember.tag}`, inline:true },
+					{ name:'Nickname', value:`${GuildMember.nickname}`, inline:true },
+					{ name:'Base 10 color', value:`${GuildMember.displayColor}`, inline:true },
+					{ name:'Hex Color', value:`${GuildMember.displayHexColor}`, inline:true },
+					{ name:'Display Name', value:`${GuildMember.displayName}`, inline:true },
+					{ name:'Join Date', value:`${GuildMember.joinedAt}`, inline:true },
+					{ name:'Creation Date', value: `${User.CreatedAt}`, inline: true },
+				);
 
-        if (GuildMember.user.presence.game)
-            embed.addField('Currently playing', `**> Name:** ${GuildMember.user.presence.game.name}`);
+			message.channel.send(embed);
+		}
 
-        message.channel.send(embed);
-    }
-}
 
-//added GuildMember to every mention of member//
+	},
+};
+

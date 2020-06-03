@@ -1,26 +1,24 @@
 module.exports = {
-    getMember: function(message, toFind = '') {
-        toFind = toFind.toLowerCase();
+	getMember: function(message, toFind = '') {
+		toFind = toFind.toLowerCase();
 
-        let target = message.guild.members.fetch(toFind);
+		let target = message.guild.members.fetch(toFind);
 
-        if (!target && message.mentions.members)
-            target = message.mentions.members.first();
-        
-        if (!target && toFind) {
-            target = message.guild.members.find(member => {
-                return member.displayName.toLowerCase().includes(tofind) || 
-                member.user.tag.toLowerCase().includes(toFind)
+		if (!target && message.mentions.members) {target = message.mentions.members.first();}
 
-            });
-        }
-        if (!target)
-            target = message.member;
+		if (!target && toFind) {
+			target = message.guild.members.find(member => {
+				return member.displayName.toLowerCase().includes() ||
+                member.user.tag.toLowerCase().includes(toFind);
 
-        return target;
-    },
+			});
+		}
+		if (!target) {target = message.member;}
 
-    formatDate: function(date) {
-        return new Intl.DateTimeFormat('en-US').format(date);
-    }
-}
+		return target;
+	},
+
+	formatDate: function(date) {
+		return new Intl.DateTimeFormat('en-US').format(date);
+	},
+};
