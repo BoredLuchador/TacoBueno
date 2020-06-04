@@ -13,7 +13,7 @@ module.exports = {
 			.setTitle('Help Panel')
 			.setDescription('*Note that this help command is currently hardcoded and will not be as up to date. If that is the case, please let the developer know.*')
 			.addFields (
-				{ name: '**Info**', value: '`help`\n`ping`', inline: true },
+				{ name: '**Info**', value: '`help`\n`invite`\n`ping`', inline: true },
 				{ name: '**Moderation**', value: '`avatar`\n`report`\n`say`', inline: true },
 				{ name: '**Silly Commands**', value: '`confess`', inline: true },
 				{ name: '**Dev tools**', value: '`bin`\n`module.exports`', inline: true },
