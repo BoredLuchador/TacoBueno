@@ -7,6 +7,7 @@ module.exports = {
 	description: 'Returns avatar image in png format',
 	run: async (clinet, message) => {
 
+		// Sets user variable as the first person mentioned OR NULL //
 		let User = message.mentions.users.first() || null;
 
 

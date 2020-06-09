@@ -46,12 +46,12 @@ client.on('ready', () => {
 // message event in console//
 client.on('message', async message => {
 
-	// Checks to prevent random bad stuff from happening//
 
-	if (!message.guild) return;
-	if (!message.content.startsWith(prefix)) return;
+	// Checks to prevent random bad stuff from happening/
 
-	const args = message.content.slice(prefix.length).trim().split(/ +/g);
+	if (!message.content.startsWith(prefix) || !message.guild || message.author.bot) return;
+
+	const args = message.content.slice(prefix.length).split(' ');
 	const cmd = args.shift().toLowerCase();
 
 	if (cmd.length === 0) return;
@@ -60,6 +60,7 @@ client.on('message', async message => {
 	if (!command) command = client.commands.get(client.aliases.get(cmd));
 
 	if (command) {command.run (client, message, args);}
+
 
 });
 // errors logging to prevent complete crashes (also moninters bot health)//

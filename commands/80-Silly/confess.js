@@ -16,14 +16,14 @@ module.exports = {
 		else {
 
 			let Channel = message.guild.channels.cache.find(ch=>ch.name.includes('confess'));
-			if (!Channel) return message.channel.send('There is no channel in this guild which contains thw word `confess`');
+			if (!Channel) return message.channel.send('There is no channel in this guild which contains the word `confess`');
 
 			let Embed = new Discord.MessageEmbed()
-				.setTitle('Anonymous#0000')
+				.setTitle('**Anonymous#0000**')
 				.setColor('RANDOM')
 				.setThumbnail('https://www.blogherald.com/wp-content/uploads/2015/09/anonymous-logo-transparent-wallpaper-4.jpg.png')
 				.addFields(
-					{ name:'Confession', value:confession, inline:true },
+					{ name:'Confession:', value:confession, inline:true },
 				);
 			Channel.send(Embed);
 		}
