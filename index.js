@@ -1,27 +1,20 @@
 // Things the Code depends on
 const fs = require('fs');
 const { Client, Collection } = require('discord.js');
-const { config } = require('dotenv');
-const { prefix } = require('./config.json');
+const { prefix, token } = require('./config.json');
 
 // Setup //
 const client = new Client();
 
-
 // Command handler client stuff? //
 client.commands = new Collection();
-client.aliases = new Collection();
 
-client.categories = fs.readdirSync('./commands');
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-config({
-	path: __dirname + '/.env',
-});
-
-// Gotta load that command handler //
-['command'].forEach(handler => {
-	require(`./handler/${handler}`)(client);
-});
+for (const file of commandFiles) {
+	const command = require(`./commands/${file}`);
+	client.commands.set(command.name, command);
+}
 
 // Stuff below will be replaced by EVENT HANDLER//
 // READY EVENT//
@@ -41,29 +34,41 @@ client.on('message', async (message) => {
 
 	// Sends prefix by mentioning the bot. also uses mentioning the bot as the prefix
 	const mentionRegex = RegExp(`^<@!${client.user.id}>$`);
-	const mentionRegexPrefix = RegExp(`^<@!${client.user.id}> `);
+	if (message.content.match(mentionRegex)) message.channel.send(`My prefix for this server is \`${prefix}\`.`);
 
 	if (!message.guild || message.author.bot) return;
 
-	if (message.content.match(mentionRegex)) message.channel.send(`My prefix for this server is \`${prefix}\`.`);
-
-	// Sets the prefix const using the mention and falling back to actual prefix
-
-	const dprefix = message.content.match(mentionRegexPrefix) ?
-		message.content.match(mentionRegexPrefix)[0] : prefix;
 
 	// CONDITION ? TRUE : FALSE
-	// Creating the command and args array //
-	const [cmd, ...args] = message.content.slice(dprefix.length).trim().split(/ +/g);
+	const args = message.content.slice(prefix.length).split(/ +/);
+	const commandName = args.shift().toLowerCase();
 
-	// Checks to prevent random bad stuff from happening/
+	const command = client.commands.get(commandName)
+		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-	if (cmd.length === 0) return;
+	if (!command) return;
+	// const commandName = client.commands.get(cmd.toLowerCase()) || client.command.get(client.aliases.get(cmd.toLowerCase));
+	if (command.guildOnly && message.channel.type !== 'text') {
+		return message.reply('Ummm do you know that you can\'t use that command inside DMs?');
+	}
 
-	let command = client.commands.get(cmd);
-	if (!command) command = client.commands.get(client.aliases.get(cmd));
+	if (command.args && !args.length) {
+		let reply = `You didn't provide any arguments, ${message.author}!`;
 
-	if (command) {command.run (client, message, args);}
+		if (command.usage) {
+			reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+		}
+
+		return message.channel.send(reply);
+	}
+
+	try {
+		command.run (client, message, args);
+	}
+	catch (error) {
+		console.error(error);
+		message.reply('we ran into a problem trying to run the command.');
+	}
 
 
 });
@@ -79,4 +84,4 @@ client.on('debug', (e) => console.info(e));
 
 
 // Logging the bot in//
-client.login(process.env.TOKEN);
+client.login(token);
