@@ -2,7 +2,8 @@ module.exports = {
 	name: 'dice',
 	category: 'Fun',
 	description: 'Lets a bot roll a die with as much faces as you wish.',
-	usage: '<Number OF Faces',
+	args: true,
+	usage: '<Number OF Faces>',
 	run: async (client, message, args) => {
 		if (args.length < 1 || isNaN(args[0])) {
 			return message.reply('You have to give me the number of faces you want. :flushed:');

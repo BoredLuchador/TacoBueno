@@ -5,6 +5,7 @@ module.exports = {
 	aliases: ['pfp'],
 	category: 'moderation',
 	description: 'Returns avatar image in png format',
+	usage : '[Mention]',
 	run: async (clinet, message) => {
 
 		// Sets user variable as the first person mentioned OR NULL //

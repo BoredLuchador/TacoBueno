@@ -3,8 +3,9 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'say',
 	aliases: ['bc', 'broadcast'],
-	description: 'bot justs repeats after you. please note that using the embed version will use ',
-	usage: '<input>',
+	category: 'Moderation',
+	description: 'bot justs repeats after you. please note that using the embed version will use the embed',
+	usage: '<input> OR <embed> <input>',
 	run: async (clinet, message, args) => {
 		if (message.deletable) message.delete();
 

@@ -6,15 +6,22 @@ const { prefix, token } = require('./config.json');
 // Setup //
 const client = new Client();
 
-// Command handler client stuff? //
+// COLLECTIONS //
 client.commands = new Collection();
+client.aliases = new Collection();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+const cooldowns = new Collection();
 
-for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
-}
+
+// Command handlers
+fs.readdirSync('./commands/').forEach(dir => {
+	const commandFiles = fs.readdirSync(`./commands/${dir}/`).filter(file => file.endsWith('.js'));
+
+	for (const file of commandFiles) {
+		const command = require(`./commands/${dir}/${file}`);
+		client.commands.set(command.name, command);
+	}
+});
 
 // Stuff below will be replaced by EVENT HANDLER//
 // READY EVENT//
@@ -34,43 +41,66 @@ client.on('message', async (message) => {
 
 	// Sends prefix by mentioning the bot. also uses mentioning the bot as the prefix
 	const mentionRegex = RegExp(`^<@!${client.user.id}>$`);
-	if (message.content.match(mentionRegex)) message.channel.send(`My prefix for this server is \`${prefix}\`.`);
+	if (message.content.match(mentionRegex)) {
+		message.channel.send(`My prefix for this server is \`${prefix}\`.`);
+	}
+	else {
+		// Uses The prefix method if the Mention function doesnt work //
+		if (!message.guild || message.author.bot || !message.content.startsWith(prefix)) return;
 
-	if (!message.guild || message.author.bot) return;
 
+		// CONDITION ? TRUE : FALSE
+		const args = message.content.slice(prefix.length).split(/ +/);
+		const commandName = args.shift().toLowerCase();
 
-	// CONDITION ? TRUE : FALSE
-	const args = message.content.slice(prefix.length).split(/ +/);
-	const commandName = args.shift().toLowerCase();
-
-	const command = client.commands.get(commandName)
+		// Gets the command OR gets the aliases of said command //
+		const command = client.commands.get(commandName)
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-	if (!command) return;
-	// const commandName = client.commands.get(cmd.toLowerCase()) || client.command.get(client.aliases.get(cmd.toLowerCase));
-	if (command.guildOnly && message.channel.type !== 'text') {
-		return message.reply('Ummm do you know that you can\'t use that command inside DMs?');
-	}
+		if (!command) return;
 
-	if (command.args && !args.length) {
-		let reply = `You didn't provide any arguments, ${message.author}!`;
-
-		if (command.usage) {
-			reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+		if (command.guildOnly && message.channel.type !== 'text') {
+			return message.reply('Ummm do you know that you can\'t use that command inside DMs?');
 		}
 
-		return message.channel.send(reply);
-	}
+		if (command.args && !args.length) {
+			let reply = `You didn't provide any arguments, ${message.author}!`;
 
-	try {
-		command.run (client, message, args);
-	}
-	catch (error) {
-		console.error(error);
-		message.reply('we ran into a problem trying to run the command.');
-	}
+			if (command.usage) {
+				reply += `\nThe proper usage would be: \`${prefix}${command.name} ${command.usage}\``;
+			}
 
+			return message.channel.send(reply);
+		}
 
+		if (!cooldowns.has(command.name)) {
+			cooldowns.set(command.name, new Collection());
+		}
+
+		const now = Date.now();
+		const timestamps = cooldowns.get(command.name);
+		const cooldownAmount = (command.cooldown || 2) * 1000;
+
+		if (timestamps.has(message.author.id)) {
+			const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+
+			if (now < expirationTime) {
+				const timeLeft = (expirationTime - now) / 1000;
+				return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+			}
+		}
+
+		timestamps.set(message.author.id, now);
+		setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
+
+		try {
+			command.run (client, message, args);
+		}
+		catch (error) {
+			console.error(error);
+			message.reply('we ran into a problem trying to run the command.');
+		}
+	}
 });
 // errors logging to prevent complete crashes (also moninters bot health)//
 client.on('error', (e) => console.error(e));

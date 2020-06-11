@@ -6,6 +6,7 @@ module.exports = {
 	description: 'Allows you to anonymously confess something to the confession board',
 	args: true,
 	usage: '<confession>',
+	cooldown: 1,
 	run: async (client, message, args) => {
 		if (message.deletable) message.delete();
 
