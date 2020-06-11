@@ -59,10 +59,12 @@ client.on('message', async (message) => {
 
 		if (!command) return;
 
+		// Filter for guild only commands
 		if (command.guildOnly && message.channel.type !== 'text') {
 			return message.reply('Ummm do you know that you can\'t use that command inside DMs?');
 		}
 
+		// filter for commands with NEEDED args
 		if (command.args && !args.length) {
 			let reply = `You didn't provide any arguments, ${message.author}!`;
 
@@ -73,6 +75,7 @@ client.on('message', async (message) => {
 			return message.channel.send(reply);
 		}
 
+		// Prevents command flooding
 		if (!cooldowns.has(command.name)) {
 			cooldowns.set(command.name, new Collection());
 		}
@@ -93,6 +96,7 @@ client.on('message', async (message) => {
 		timestamps.set(message.author.id, now);
 		setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
+		// This thing actually runs the command
 		try {
 			command.run (client, message, args);
 		}
