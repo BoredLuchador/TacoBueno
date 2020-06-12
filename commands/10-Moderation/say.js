@@ -5,29 +5,32 @@ module.exports = {
 	aliases: ['bc', 'broadcast'],
 	category: 'Moderation',
 	description: 'bot justs repeats after you. please note that using the embed version will use the embed',
+	args: true,
 	usage: '<input> OR <embed> <input>',
 	run: async (clinet, message, args) => {
-		if (message.deletable) message.delete();
 
-		if (args.length < 1) {return message.reply('You can\'t just ask me to say nothing... :eyes:');}
+		if (args.length[0]) {
+			if (message.deletable) message.delete();
 
-		// Embed variables//
-		// CONST below picks the role color//
-		// const roleColor = message.guild.me.displayHexColor === "#000000" ? "#ffffff" : message.guild.me.displayHexColor;
-		const Author = message.author;
+			// Embed variables//
+			// CONST below picks the role color//
+			// const roleColor = message.guild.me.displayHexColor === "#000000" ? "#ffffff" : message.guild.me.displayHexColor;
+			const Author = message.author;
 
-		if (args[0].toLowerCase() === 'embed') {
+			if (args[0].toLowerCase() === 'embed') {
 
-			// Embed stuff here//
-			const Embed = new Discord.MessageEmbed()
-				.setColor('RANDOM')
-				.setDescription(args.slice(1).join(' '))
-				.addField('Author:', (Author), true)
-				.setTimestamp();
-			message.channel.send(Embed);
-		}
-		else {
-			message.channel.send(args.join(' '));
+				if (args[1]) {
+					const Embed = new Discord.MessageEmbed()
+						.setColor('RANDOM')
+						.setDescription(args.slice(1).join(' '))
+						.addField('Author:', (Author), true)
+						.setTimestamp();
+					message.channel.send(Embed);
+				}
+			}
+			else {
+				message.channel.send(args.join(' '));
+			}
 		}
 	},
 };

@@ -22,7 +22,7 @@ module.exports = {
 					{ name: 'Random things you should\'ve learned lmao', value: '[Folder stuff](https://estk.aenhancers.com/3%20-%20File%20System%20Access/using-file-and-folder-objects.html), [Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript), [Hosting with heroku](https://youtu.be/6By-t-FaKPc)' },
 					{ name: 'Youtube channels that give good ideas', value: '[The Source code](https://www.youtube.com/channel/UCNXt2MrZaqfIBknamqwzeXA), [Stuy](https://www.youtube.com/user/DatAdam93/featured), [Menu Docs](https://www.youtube.com/channel/UCpGGFqJP9vYvzFudqnQ-6IA/featured), [Salvage_Dev](https://www.youtube.com/channel/UC7-pjRSGoNEMoIujwOH2Mhw/featured)' },
 				);
-			message.channel.send(devembed);
+			message.author.send(devembed);
 		}
 		else {
 			return message.channel.send('No, your\'e not getting your hands on primo\'s notes');
