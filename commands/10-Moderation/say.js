@@ -27,6 +27,9 @@ module.exports = {
 						.setTimestamp();
 					message.channel.send(Embed);
 				}
+				else {
+					return message.channel.send('Oh no, I\'m not able to send a empty embed');
+				}
 			}
 			else {
 				message.channel.send(args.join(' '));

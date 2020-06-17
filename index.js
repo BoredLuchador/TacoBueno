@@ -1,7 +1,7 @@
 // Things the Code depends on
 const fs = require('fs');
 const { Client, Collection } = require('discord.js');
-const { prefix, token } = require('./config.json');
+const { prefix, token, Status } = require('./config.json');
 
 // Setup //
 const client = new Client();
@@ -33,7 +33,7 @@ client.once('ready', () => {
 		// Color Dot Status//
 		status: 'online',
 	});
-	client.user.setActivity('Primo Fail at coding', { type: 'WATCHING' });
+	client.user.setActivity(`${Status.Message}`, { type: 'PLAYING' });
 });
 
 // message event in console//

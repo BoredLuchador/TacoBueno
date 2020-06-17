@@ -13,7 +13,7 @@ module.exports = {
 		// Embed Creation
 		const embed = new MessageEmbed()
 			.setColor(`${colorarray[color]}`)
-			.setTitle(`\`${bot_info.name}\`'s Stats`)
+			.setTitle(`${bot_info.name}'s Stats`)
 			.setDescription('Wow I\'m very susprised that you care enough about me to look up my stats. These are some basic info that will change from time to time.')
 			.addFields (
 				{ name: 'name', value: `${bot_info.name}` },
@@ -22,6 +22,7 @@ module.exports = {
 				{ name: 'Hosting Provider', value: `${bot_info.hosting_provider}` },
 				{ name: 'Libary', value:`${bot_info.Libary}` },
 				{ name: 'Operating System', value: `${bot_info.Platform}` },
+				{ name: 'Server count', value: `${client.guilds.cache.size}` },
 			);
 		message.channel.send(embed);
 	},
