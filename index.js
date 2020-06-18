@@ -102,7 +102,7 @@ client.on('message', async (message) => {
 		}
 		catch (error) {
 			console.error(error);
-			message.reply('we ran into a problem trying to run the command.');
+			message.reply(`We ran into a problem trying to run the command.\nDetails: ${error}\n If you keep getting this, please send this to the developer.`);
 		}
 	}
 });

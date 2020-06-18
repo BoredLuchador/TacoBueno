@@ -12,7 +12,13 @@ module.exports = {
 		let User = message.mentions.users.first() || null;
 
 		if (User == null) {
-			return message.channel.send('You did not mention a user!');
+			try {
+				return message.channel.send('You did not mention a user!');
+			}
+			catch (error) {
+				console.error(error);
+				message.channel.send(`Something went wrong.\nError details:\n${error}\n**If you keep running into this problem, please send this error message and send some ss to the developer.**`);
+			}
 		}
 		else {
 			let Reason = args.slice(1).join(' ') || null;
@@ -37,7 +43,13 @@ module.exports = {
 					{ name:'Reason', value:`\`${Reason.slice(0)}\``, inline:true },
 					{ name:'Date (M/D/Y)', value:`${new Intl.DateTimeFormat('en-US').format(Date.now())}`, inline:true },
 				);
-			Channel.send(Embed);
+			try{
+				Channel.send(Embed);
+			}
+			catch (error) {
+				console.error(error);
+				message.channel.send(`Something went wrong.\nError details:\n${error}\n**If you keep running into this problem, please send this error message and send some ss to the developer.**`);
+			}
 		}
 
 	},

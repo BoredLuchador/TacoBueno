@@ -24,6 +24,12 @@ module.exports = {
 				{ name: 'Operating System', value: `${bot_info.Platform}` },
 				{ name: 'Server count', value: `${client.guilds.cache.size}` },
 			);
-		message.channel.send(embed);
+		try{
+			message.channel.send(embed);
+		}
+		catch(error) {
+			console.error(error);
+			message.channel.send(`Something went wrong.\nError details:\n${error}\n**If you keep running into this problem, please send this error message and send some ss to the developer.**`);
+		}
 	},
 };

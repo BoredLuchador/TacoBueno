@@ -25,14 +25,27 @@ module.exports = {
 						.setDescription(args.slice(1).join(' '))
 						.addField('Author:', (Author), true)
 						.setTimestamp();
-					message.channel.send(Embed);
+
+					try {
+						message.channel.send(Embed);
+					}
+					catch (error) {
+						console.error(error);
+						message.channel.send(`Something went wrong.\nError details:\n${error}\n**If you keep running into this problem, please send this error message and send some ss to the developer.**`);
+					}
 				}
 				else {
 					return message.channel.send('Oh no, I\'m not able to send a empty embed');
 				}
 			}
 			else {
-				message.channel.send(args.join(' '));
+				try {
+					message.channel.send(args.join(' '));
+				}
+				catch (error) {
+					console.error(error);
+					message.channel.send(`Something went wrong.\nError details:\n${error}\n**If you keep running into this problem, please send this error message and send some ss to the developer.**`);
+				}
 			}
 		}
 	},

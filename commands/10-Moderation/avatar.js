@@ -27,8 +27,14 @@ module.exports = {
 				.setDescription(Udes.join(' '))
 				.setImage(Userimg)
 				.setTimestamp();
-			message.channel.send(UEmbed);
 
+			try{
+				message.channel.send(UEmbed);
+			}
+			catch (error) {
+				console.error(error);
+				message.channel.send(`Something went wrong.\nError details:\n${error}\n**If you keep running into this problem, please send this error message and send some ss to the developer.**`);
+			}
 		}
 		else {
 
@@ -47,7 +53,14 @@ module.exports = {
 				.setDescription(des.join(' '))
 				.setImage(image)
 				.setTimestamp();
-			message.channel.send(Embed);
+
+			try {
+				message.channel.send(Embed);
+			}
+			catch (error) {
+				console.error(error);
+				message.channel.send(`Something went wrong.\nError details:\n${error}\n**If you keep running into this problem, please send this error message and send some ss to the developer.**`);
+			}
 		}
 
 	},

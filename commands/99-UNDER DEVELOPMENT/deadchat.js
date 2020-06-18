@@ -23,7 +23,8 @@ module.exports = {
 			message.channel.send(embed);
 		}
 		catch (error) {
-			message.channel.send('Oh no the command broke somehow!');
+			console.error(error);
+			message.channel.send(`Something went wrong.\nError details:\n${error}\n**If you keep running into this problem, please send this error message and send some ss to the developer.**`);
 		}
 	},
 };
