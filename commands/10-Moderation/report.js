@@ -5,6 +5,7 @@ module.exports = {
 	aliases: ['r'],
 	category: 'Moderation',
 	description: 'Reports people. What else did you expect?',
+	args: true,
 	usage: '<mention | id> <reason>',
 	run: async (client, message, args) => {
 		if (message.deletable) message.delete();

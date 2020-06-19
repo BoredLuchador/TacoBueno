@@ -16,11 +16,12 @@ module.exports = {
 				const msgamount = args[0];
 				let x = args[0];
 				x = x + 1;
-				while(x > 100 || x == 100) {
-					await message.channel.bulkDelete(50, true);
-					x = x - 50;
-				}
 				try {
+					while(x > 100 || x == 100) {
+						await message.channel.bulkDelete(50, true);
+						x = x - 50;
+					}
+
 					await message.channel.bulkDelete(x, true);
 					const fin = await message.channel.send(`looks like I purged ${msgamount} messages.`);
 					await fin.delete({ timeout: 5000, reason: `${message.author} wanted to delete ${msgamount}` });
