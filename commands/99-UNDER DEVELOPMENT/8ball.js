@@ -24,6 +24,7 @@ module.exports = {
 			'Reply hazy try again',
 			'Better not tell you now',
 			'Ask again later',
+			'Look dude, I am severely underqualified for your problems',
 			'Cannot predict now',
 			'Concentrate and ask again',
 			'Don’t count on it',
