@@ -5,6 +5,7 @@ module.exports = {
 	aliases: ['cough', 'kill'],
 	category: 'fun',
 	description: 'Lets you infect someone you hate with something nasty.',
+	cooldown : 15,
 	args: true,
 	usage: '<mention>',
 	run: async (client, message, args) => {
