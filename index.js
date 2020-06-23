@@ -33,7 +33,7 @@ client.once('ready', () => {
 		// Color Dot Status//
 		status: 'online',
 	});
-	client.user.setActivity(`${Status.Message}`, { type: 'PLAYING' });
+	client.user.setActivity(`${Status.Message}`, { type: 'WATCHING' });
 });
 
 // message event in console//

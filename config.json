@@ -12,7 +12,7 @@
     "BotColor" : ["#ff8b1c", "#fc251d", "#0faa17", "#059dfc", "#fee36b"],
 
     "Status" : {
-        "Message" : "With El Primo's forbidden toys",
+        "Message" : "El Primo's messages to Bull",
         "Type" : ["WATCHING"]
     }
 }
