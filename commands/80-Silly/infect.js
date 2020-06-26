@@ -10,7 +10,6 @@ module.exports = {
 	usage: '<mention>',
 	run: async (client, message, args) => {
 		if (args[0]) {
-			if (message.deletable) message.delete();
 
 			let User = message.mentions.users.first() || null;
 
