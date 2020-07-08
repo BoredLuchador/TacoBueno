@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'avatar',
-	aliases: ['pfp'],
+	aliases: ['pfp', 'av'],
 	category: 'moderation',
 	description: 'Returns avatar image in png format',
 	usage : '[Mention]',
