@@ -12,7 +12,7 @@ module.exports = {
 		if (args[0]) {
 			if (message.deletable) message.delete();
 
-			let User = message.mentions.users.first() || null;
+			let User = message.mentions.users.first() || client.users.cache.get(args[0]) || null;
 
 			if (User == null) {
 				User = message.author;

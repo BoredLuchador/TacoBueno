@@ -6,10 +6,10 @@ module.exports = {
 	category: 'moderation',
 	description: 'Returns avatar image in png format',
 	usage : '[Mention]',
-	run: async (clinet, message) => {
+	run: async (client, message, args) => {
 
 		// Sets user variable as the first person mentioned OR NULL //
-		let User = message.mentions.users.first() || null;
+		let User = message.mentions.users.first() || client.users.cache.get(args[0]) || null;
 
 
 		if (User != null) {

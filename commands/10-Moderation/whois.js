@@ -7,12 +7,12 @@ module.exports = {
 	name: 'whois',
 	aliases: ['userinfo', 'user', 'who' ],
 	category: 'info',
-	description: 'Returns user infomation/n*Currently the command is broken*',
+	description: 'Returns user infomation/n*Currently the command is UNSUPPORTED*',
 	usage: '[id | mention]',
-	run: async (client, message) => {
+	run: async (client, message, args) => {
 
 		try {
-			let User = message.mentions.users.first() || null;
+			let User = message.mentions.users.first() || client.users.cache.get(args[0]) || null;
 
 			// checks to see if the message author pinged anyone //
 			if (User == null) {
