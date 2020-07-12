@@ -4,7 +4,7 @@ const { BotColor } = require('../../config.json');
 module.exports = {
 	name: 'help-dev',
 	aliases: 'h-d',
-	category: 'dev tools',
+	category: '00',
 	description: 'Shows a list of command, or details on one command',
 	args: true,
 	usage: '<magic password>',

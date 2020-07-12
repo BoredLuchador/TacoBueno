@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'help',
 	aliases: 'h',
-	category: 'Info',
+	category: '00',
 	description: 'Shows a list of command, or details on one command',
 	usage: '[command | alias of command]',
 	run: async (client, message, args) => {
@@ -18,14 +18,23 @@ module.exports = {
 
 		if (!args.length) {
 			const title = ('Here\'s a list of all my commands:');
-			const Commands = (commands.map(command => command.name).join('`, `'));
 			const field = (`You can send \`${prefix}help [command name]\` to get info on a specific command!`);
+			const x = false;
 
+			// PAGE 1 file sorter
+			const cmd00 = (commands.filter(command => command.category == '00').map(command => command.name).join('`, `'));
+			const cmd10 = (commands.filter(command => command.category == '10').map(command => command.name).join('`, `'));
+			const cmd80 = (commands.filter(command => command.category == '80').map(command => command.name).join('`, `'));
+
+			// Actual pages
+			// PAGE 1
 			const embed = new Discord.MessageEmbed()
 				.setColor(`${colorarray[color]}`)
 				.setTitle(title)
-				.setDescription(`\`${Commands}\``)
 				.addFields(
+					{ name: 'Info and Utulity', value: `\`${cmd00}\``, inline: x },
+					{ name: 'Moderation', value: `\`${cmd10}\``, inline: x },
+					{ name: 'Silly', value: `\`${cmd80}\``, inline: x },
 					{ name: 'Want to know more about a command?', value: field, inline: false },
 				)
 				.setTimestamp();
@@ -47,9 +56,19 @@ module.exports = {
 			if (!command) {
 				return message.reply('that\'s not a valid command!');
 			}
+			// Category setter
+			let cname = '';
+			if (command.category) {
+
+
+				if (command.category == '00') cname = 'Info and Utility';
+				if (command.category == '10') cname = 'Moderation';
+				if (command.category == '80') cname = 'Silly';
+				if (command.category == '99') cname = 'UNDER DEVELOPMENT / BROKEN';
+			}
 
 			data.push(`**Name:** ${command.name}`);
-			if (command.category) data.push(`**Category:** ${command.category}`);
+			if (command.category) data.push(`**Category:** ${cname}`);
 			if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
 			if (command.description) data.push(`**Description:** ${command.description}`);
 			if (command.usage) data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);

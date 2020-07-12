@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'purge',
 	aliases: ['delete', 'clean'],
-	category: 'moderation',
+	category: '10',
 	description: 'allows you to clean up some spam or your mess',
 	guildOnly: true,
 	args: true,

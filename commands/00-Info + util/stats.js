@@ -3,7 +3,7 @@ const { bot_info, BotColor } = require('../../config.json');
 
 module.exports = {
 	name: 'stats',
-	category: 'Utility',
+	category: '00',
 	description: 'Gives stats about the bot, and how it is made.',
 	run: async (client, message) => {
 		// COLOR PICKER BASED ON CONFIG.JSON

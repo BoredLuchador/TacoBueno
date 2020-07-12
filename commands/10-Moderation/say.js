@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'say',
 	aliases: ['bc', 'broadcast'],
-	category: 'Moderation',
+	category: '10',
 	description: 'bot justs repeats after you. please note that using the embed version will use the embed',
 	args: true,
 	usage: '<input> OR <embed> <input>',

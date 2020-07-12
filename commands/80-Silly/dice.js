@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'dice',
-	category: 'Fun',
+	category: '80',
 	description: 'Lets a bot roll a die with as much faces as you wish.',
 	args: true,
 	usage: '<Number OF Faces>',

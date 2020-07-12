@@ -6,7 +6,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'whois',
 	aliases: ['userinfo', 'user', 'who' ],
-	category: 'info',
+	category: '10',
 	description: 'Returns user infomation/n*Currently the command is UNSUPPORTED*',
 	usage: '[id | mention]',
 	run: async (client, message, args) => {

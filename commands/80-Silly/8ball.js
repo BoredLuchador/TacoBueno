@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: '8ball',
 	aliases: ['yesno', 'yn'],
-	category: 'fun',
+	category: '80',
 	description: 'Replies to an yes/no question with a prediction (**DO NOT USE TO DETERMINE YOUR FATE**)',
 	args: true,
 	usage: '<question>',

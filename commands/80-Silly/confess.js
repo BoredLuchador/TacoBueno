@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'confess',
 	aliases: 'confession',
-	category: 'Silly',
+	category: '80',
 	description: 'Allows you to anonymously confess something to the confession board',
 	args: true,
 	usage: '<confession>',

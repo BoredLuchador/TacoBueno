@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'server info',
 	aliases: ['guild', 'guild--i'],
-	category: 'moderation',
+	category: '10',
 	description: 'Returns basic info about the server',
 	guildOnly: true,
 	run: async (client, message) => {

@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'bin',
-	category: 'Dev-Tools',
+	category: '00',
 	description: 'Shows link to PrivateBin',
 	run: async (client, message) => {
 

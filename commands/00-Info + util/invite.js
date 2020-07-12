@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'invite',
-	category: 'info',
+	category: '00',
 	description: 'Invite the bot to different servers!',
 	run: async (client, message) => {
 

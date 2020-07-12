@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'ping',
-	category: 'info',
+	category: '00',
 	description: 'Returns the latency ping',
 	run: async (client, message) => {
 		try{

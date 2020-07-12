@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'deadchat',
-	category: 'fun',
+	category: '80',
 	description: 'Sends a message showing how dead the chat is.',
 	cooldown : 30,
 	run: async (client, message) => {

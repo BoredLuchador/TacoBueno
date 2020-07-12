@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'beemoviescript',
-	category: 'fun',
+	category: '80',
 	description: 'floods your dm with the entire bee movie script',
 	run: async (client, message) => {
 		message.react('🐝');

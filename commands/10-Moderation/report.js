@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'report',
 	aliases: ['r'],
-	category: 'Moderation',
+	category: '10',
 	description: 'Reports people. What else did you expect?',
 	args: true,
 	usage: '<mention> <reason>',

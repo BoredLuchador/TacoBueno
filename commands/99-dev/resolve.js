@@ -1,6 +1,6 @@
 module.exports = {
 	name: 'resolve',
-	category: 'DEV TOOLS',
+	category: '10',
 	description: 'test to find out how the user resolvable works',
 	args: true,
 	usage: '<something for it to resolve to user object>',
