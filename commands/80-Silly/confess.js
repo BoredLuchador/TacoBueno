@@ -5,6 +5,7 @@ module.exports = {
 	aliases: 'confession',
 	category: '80',
 	description: 'Allows you to anonymously confess something to the confession board',
+	guildOnly: true,
 	args: true,
 	usage: '<confession>',
 	cooldown: 1,

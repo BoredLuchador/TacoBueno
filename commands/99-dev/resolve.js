@@ -2,6 +2,7 @@ module.exports = {
 	name: 'resolve',
 	category: '10',
 	description: 'test to find out how the user resolvable works',
+	guildOnly: true,
 	args: true,
 	usage: '<something for it to resolve to user object>',
 	run: async (client, message, args) => {

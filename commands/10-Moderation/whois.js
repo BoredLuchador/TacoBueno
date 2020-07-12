@@ -8,6 +8,7 @@ module.exports = {
 	aliases: ['userinfo', 'user', 'who' ],
 	category: '10',
 	description: 'Returns user infomation/n*Currently the command is UNSUPPORTED*',
+	guildOnly: true,
 	usage: '[id | mention]',
 	run: async (client, message, args) => {
 

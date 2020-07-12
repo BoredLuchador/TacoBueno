@@ -5,6 +5,7 @@ module.exports = {
 	aliases: ['r'],
 	category: '10',
 	description: 'Reports people. What else did you expect?',
+	guildOnly: true,
 	args: true,
 	usage: '<mention> <reason>',
 	run: async (client, message, args) => {
