@@ -8,7 +8,7 @@ module.exports = {
 	guildOnly: true,
 	args: true,
 	usage: '<confession>',
-	cooldown: 1,
+	cooldown: 10,
 	run: async (client, message, args) => {
 		try {
 			if (message.deletable) message.delete();

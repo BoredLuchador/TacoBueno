@@ -3,7 +3,7 @@
     "token" : "Njk5Njc1NzIwMjA0NjgxMjM2.XpX6BQ.0j-6JO7VK2zPSffnztnDE5xOsfI",
     "bot_info" : {
         "name" : "Taco Bueno",
-        "Version" : "Bullseye 2.0.0",
+        "Version" : "Bullseye 2.0.1",
         "Author" : "El Primo the thicc gae God",
         "Libary" : "Discord js v12.2.0",
         "hosting_provider" : "Heroku",
@@ -12,7 +12,7 @@
     "BotColor" : ["#ff8b1c", "#fc251d", "#0faa17", "#059dfc", "#fee36b"],
 
     "Status" : {
-        "Message" : "El Primo, Bull, and Colt having a sleepover...wait a minute...what are they doing over there?",
+        "Message" : "to weird noises from primo's bedroom",
         "Type" : ["WATCHING"]
     }
 }

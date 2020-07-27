@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'infect',
-	aliases: ['cough', 'kill'],
+	aliases: ['cough', 'sneeze'],
 	category: '80',
 	description: 'Lets you infect someone you hate with something nasty.',
 	cooldown : 15,

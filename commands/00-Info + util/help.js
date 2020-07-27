@@ -25,21 +25,23 @@ module.exports = {
 			const cmd00 = (commands.filter(command => command.category == '00').map(command => command.name).join('`, `'));
 			const cmd10 = (commands.filter(command => command.category == '10').map(command => command.name).join('`, `'));
 			const cmd80 = (commands.filter(command => command.category == '80').map(command => command.name).join('`, `'));
+			const cmd85 = (commands.filter(command => command.category == '85').map(command => command.name).join('`, `'));
 
 			// Actual pages
 			// PAGE 1
-			const embed = new Discord.MessageEmbed()
+			const pg1 = new Discord.MessageEmbed()
 				.setColor(`${colorarray[color]}`)
 				.setTitle(title)
 				.addFields(
-					{ name: 'Info and Utulity', value: `\`${cmd00}\``, inline: x },
+					{ name: 'Info and Utility', value: `\`${cmd00}\``, inline: x },
 					{ name: 'Moderation', value: `\`${cmd10}\``, inline: x },
 					{ name: 'Silly', value: `\`${cmd80}\``, inline: x },
+					{ name: 'Reddit', value:  `\`${cmd85}\``, inline: x },
 					{ name: 'Want to know more about a command?', value: field, inline: false },
 				)
 				.setTimestamp();
 
-			return message.author.send(embed)
+			await message.author.send(pg1)
 				.then(() => {
 					if (message.channel.type === 'dm') return;
 					message.reply('I\'ve sent you a DM with all my commands!');
@@ -64,9 +66,11 @@ module.exports = {
 				if (command.category == '00') cname = 'Info and Utility';
 				if (command.category == '10') cname = 'Moderation';
 				if (command.category == '80') cname = 'Silly';
+				if (command.category == '85') cname = 'Reddit';
 				if (command.category == '99') cname = 'UNDER DEVELOPMENT / BROKEN';
 			}
 
+			// Help command page (Not in embed format yet)
 			data.push(`**Name:** ${command.name}`);
 			if (command.category) data.push(`**Category:** ${cname}`);
 			if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
