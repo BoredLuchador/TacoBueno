@@ -8,28 +8,41 @@ module.exports = {
 	category: '85',
 	description: 'Allows you to look up a subreddit if there isn\'t a preset for your tastes yet',
 	cooldown : 5,
+	guildOnly: false,
+	NSFW : true,
 	args: true,
 	usage: '<Subreddit>',
 	run: async (client, message, args) => {
 		// Subreddits
 		try {
-			const subReddits = [args[0]];
-			const x = Math.floor((Math.random() * subReddits.length));
-			const img = await randomPuppy(subReddits[x]);
+			if(message.channel.nsfw == false) {return message.channel.send('Umm this channel doesn\'t has the requirement for this command to work safely');}
+			else{
+				const subReddits = [args[0]];
+				const x = Math.floor((Math.random() * subReddits.length));
+				const img = await randomPuppy(subReddits[x]);
 
-			const embed = new MessageEmbed()
-				.setTitle(`From /r/${subReddits[x]}`)
-				.setColor('RANDOM')
-				.setDescription(`[File link just in case the command really breaks](${img})`)
-				.setURL(`https://reddit.com/r/${subReddits[x]}/`)
-				.setImage(img)
-				.setTimestamp();
-			const attchment = new MessageAttachment(img);
+				let embed = new MessageEmbed()
+					.setTitle(`From /r/${subReddits[x]}`)
+					.setColor('RANDOM')
+					.setDescription(`[File link just in case the command really breaks](${img})`)
+					.setURL(`https://reddit.com/r/${subReddits[x]}/`)
+					.setImage(img)
+					.setTimestamp();
+				if (img.includes(['.mp4'])) {
+					embed = new MessageEmbed()
+						.setTitle(`From /r/${subReddits[x]}`)
+						.setColor('RANDOM')
+						.setDescription(`[File link just in case the command really breaks](${img})`)
+						.setURL(`https://reddit.com/r/${subReddits[x]}/`)
+						.setTimestamp();
+				}
+				const attchment = new MessageAttachment(img);
 
-			// Actual commands plays out here
-			await message.channel.send(embed);
-			if (img.includes(['.mp4'])) {
-				await message.channel.send(attchment);
+				// Actual commands plays out here
+				await message.channel.send(embed);
+				if (img.includes(['.mp4'])) {
+					await message.channel.send(attchment);
+				}
 			}
 		}
 		catch (error) {

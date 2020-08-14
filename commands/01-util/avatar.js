@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'avatar',
 	aliases: ['pfp', 'av'],
-	category: '10',
+	category: '01',
 	description: 'Returns avatar image in png format',
 	usage : '[Mention]',
 	run: async (client, message, args) => {

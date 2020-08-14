@@ -2,8 +2,14 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'invite',
+	aliases: false,
 	category: '00',
 	description: 'Invite the bot to different servers!',
+	cooldown: false,
+	guildOnly: false,
+	NSFW: false,
+	args: false,
+	usage: false,
 	run: async (client, message) => {
 
 		try {

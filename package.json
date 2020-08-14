@@ -4,7 +4,8 @@
   "description": "PRIMO'S AND SMELLY\"S BOT",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
   },
   "author": "PRIMO",
   "license": "ISC",
@@ -13,7 +14,7 @@
     "common-tags": "^1.8.0",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
-    "eslint": "^7.4.0",
+    "eslint": "^7.6.0",
     "git": "^0.1.5",
     "mime": "^2.4.6",
     "random-puppy": "^1.1.0"

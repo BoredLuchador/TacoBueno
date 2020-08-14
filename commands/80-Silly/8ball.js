@@ -24,7 +24,7 @@ module.exports = {
 			'Reply hazy try again',
 			'Better not tell you now',
 			'Ask again later',
-			'Look dude, I am severely underqualified for your problems',
+			'Look dude, I am severely underqualified to deal with your problems',
 			'Cannot predict now',
 			'Concentrate and ask again',
 			'Don’t count on it',
@@ -39,9 +39,9 @@ module.exports = {
 			let ans = Math.floor((Math.random() * replies.length));
 
 			const embed = new MessageEmbed()
-				.setTitle(`Result: ${replies[ans]}`)
+				.setTitle(`Original question from ${message.author}:\n${question.join(' ')}`)
+				.setDescription(`Result: ${replies[ans]}`)
 				.setColor('RANDOM')
-				.setDescription(`Original question from ${message.author}:\n${question.join(' ')}`)
 				.setTimestamp();
 			message.channel.send(embed);
 

@@ -6,6 +6,10 @@ module.exports = {
 	aliases: 'h',
 	category: '00',
 	description: 'Shows a list of command, or details on one command',
+	cooldown : false,
+	guildOnly: false,
+	NSFW: false,
+	args: false,
 	usage: '[command | alias of command]',
 	run: async (client, message, args) => {
 		// Picks the color based on Taco Bueno color palette defined in Config.json NO LONGER USED
@@ -23,6 +27,7 @@ module.exports = {
 
 			// PAGE 1 file sorter
 			const cmd00 = (commands.filter(command => command.category == '00').map(command => command.name).join('`, `'));
+			const cmd01 = (commands.filter(command => command.category == '01').map(command => command.name).join('`, `'));
 			const cmd10 = (commands.filter(command => command.category == '10').map(command => command.name).join('`, `'));
 			const cmd80 = (commands.filter(command => command.category == '80').map(command => command.name).join('`, `'));
 			const cmd85 = (commands.filter(command => command.category == '85').map(command => command.name).join('`, `'));
@@ -33,7 +38,8 @@ module.exports = {
 				.setColor(`${colorarray[color]}`)
 				.setTitle(title)
 				.addFields(
-					{ name: 'Info and Utility', value: `\`${cmd00}\``, inline: x },
+					{ name: 'Info', value: `\`${cmd00}\``, inline: x },
+					{ name: 'Utility', value: `\`${cmd01}\``, inline: x },
 					{ name: 'Moderation', value: `\`${cmd10}\``, inline: x },
 					{ name: 'Silly', value: `\`${cmd80}\``, inline: x },
 					{ name: 'Reddit', value:  `\`${cmd85}\``, inline: x },
@@ -63,7 +69,8 @@ module.exports = {
 			if (command.category) {
 
 
-				if (command.category == '00') cname = 'Info and Utility';
+				if (command.category == '00') cname = 'Info';
+				if (command.category == '00') cname = 'Utility';
 				if (command.category == '10') cname = 'Moderation';
 				if (command.category == '80') cname = 'Silly';
 				if (command.category == '85') cname = 'Reddit';

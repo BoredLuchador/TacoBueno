@@ -7,56 +7,34 @@ module.exports = {
 	name: 'whois',
 	aliases: ['userinfo', 'user', 'who' ],
 	category: '10',
-	description: 'Returns user infomation/n*Currently the command is UNSUPPORTED*',
+	description: 'Returns user infomation',
 	guildOnly: true,
 	usage: '[id | mention]',
 	run: async (client, message, args) => {
 
 		try {
-			let User = message.mentions.users.first() || client.users.cache.get(args[0]) || null;
+			let User = message.mentions.users.first() || client.users.cache.get(args[0]) || message.author;
+			let GuildMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.get(message.author.id);
 
-			// checks to see if the message author pinged anyone //
-			if (User == null) {
+			let Roles = [];
+			Roles.push(`${GuildMember.roles.cache.map(roles => roles.id).join('>  <@&')}`);
 
-				// Author
-				const apfp = message.author.displayAvatarURL({ format: 'png', dynamic: true });
-				const Rcolor1 = message.guild.me.displayHexColor === '#000000' ? '#ffffff' : message.guild.me.displayHexColor;
+			const embed = new MessageEmbed()
+				.setColor(GuildMember.displayHexColor)
+				.setTitle(`${User.username}`)
+				.setThumbnail(User.displayAvatarURL({ format: 'png', dynamic: true }))
+				.addFields(
+					{ name:'User ID', value:`${User.id}`, inline:true },
+					{ name:'User Tag', value:`${User.tag}`, inline:true },
+					{ name:'Nickname in this server', value: `${GuildMember.displayName}`, inline:true },
+					{ name:'Role count - everyone ping', value: `${Roles.length - 1}` },
+					{ name:'Roles (with everyone ping)', value: `<@&${Roles}>`, inline:true },
 
+				)
+				.setTimestamp(message.createdAt);
 
-				const Aembed = new MessageEmbed()
+			await message.channel.send(embed);
 
-					.setTitle(`${message.author.username}`)
-					.setDescription('Info on you since you didn\'t mention anybody else')
-					.setColor(Rcolor1)
-					.setThumbnail(apfp)
-					.addFields(
-						{ name:'User ID', value:`${message.author.id}`, inline:true },
-						{ name:'User Tag', value:`${message.author.tag}`, inline:true },
-					);
-
-				message.channel.send(Aembed);
-
-			}
-			else {
-
-				// User
-				const pfp = User.displayAvatarURL({ format: 'png', dynamic: true });
-				const Rcolor = message.guild.me.displayHexColor === '#000000' ? '#ffffff' : message.guild.me.displayHexColor;
-
-
-				const embed = new MessageEmbed()
-
-					.setTitle(`${User.username}`)
-					.setDescription('Info on the mentioned user')
-					.setColor(Rcolor)
-					.setThumbnail(pfp)
-					.addFields(
-						{ name:'User ID', value:`${User.id}`, inline:true },
-						{ name:'User Tag', value:`${User.tag}`, inline:true },
-					);
-
-				message.channel.send(embed);
-			}
 		}
 		catch (error) {
 			console.error(error);

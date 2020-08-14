@@ -1,6 +1,6 @@
 module.exports = {
-	name: 'resolve',
-	category: '10',
+	name: 'id-user',
+	category: '99',
 	description: 'test to find out how the user resolvable works',
 	guildOnly: true,
 	args: true,

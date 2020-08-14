@@ -33,7 +33,7 @@ client.once('ready', () => {
 		// Color Dot Status//
 		status: 'online',
 	});
-	client.user.setActivity(`${Status.Message}`, { type: 'LISTENING' });
+	client.user.setActivity(`${Status.Message}`, { type: 'WATCHING' });
 });
 
 // message event in console//
@@ -73,6 +73,10 @@ client.on('message', async (message) => {
 			}
 
 			return message.channel.send(reply);
+		}
+		// NSFW FILTER
+		if (command.NSFW && message.channel.nsfw == false) {
+			return message.reply('You can\'t use NSFW commands here. Either go look for an NSFW marked channel or ask an administrator to set the channel as NSFW.');
 		}
 
 		// Prevents command flooding
