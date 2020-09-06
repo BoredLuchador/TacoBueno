@@ -15,7 +15,10 @@ module.exports = {
 			if (message.deletable) message.delete();
 			if (args.length > 32) return message.channel.send('Im not gonna let you shitpost like that');
 
-			if (message.author.id == '446257790156144640') return message.chanel.send('you have been banned from this command. Contact the developer if you want this to change.');
+			if (message.author.id == '446257790156144640'
+			|| message.author.id == '618919529472589845') {
+				return message.chanel.send('you have been banned from this command. Contact the developer if you want this to change.');
+			}
 			if (args[0]) {
 				let confession = args.slice(0).join(' ');
 
