@@ -1,5 +1,6 @@
 module.exports = {
 	name: 'beemoviescript',
+	aliases: ['bms'],
 	category: '80',
 	description: 'floods your dm with the entire bee movie script',
 	run: async (client, message) => {

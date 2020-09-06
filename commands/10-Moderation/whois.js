@@ -17,7 +17,8 @@ module.exports = {
 			let GuildMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.get(message.author.id);
 
 			let Roles = [];
-			Roles.push(`${GuildMember.roles.cache.map(roles => roles.id).join('>  <@&')}`);
+			let count = GuildMember.roles.cache.filter(roles => roles.name != '@everyone').map(roles => roles.id);
+			Roles = GuildMember.roles.cache.filter(roles => roles.name != '@everyone').map(roles => roles.id).join('>  <@&');
 
 			const embed = new MessageEmbed()
 				.setColor(GuildMember.displayHexColor)
@@ -27,8 +28,8 @@ module.exports = {
 					{ name:'User ID', value:`${User.id}`, inline:true },
 					{ name:'User Tag', value:`${User.tag}`, inline:true },
 					{ name:'Nickname in this server', value: `${GuildMember.displayName}`, inline:true },
-					{ name:'Role count - everyone ping', value: `${Roles.length - 1}` },
-					{ name:'Roles (with everyone ping)', value: `<@&${Roles}>`, inline:true },
+					{ name:'Role count', value: `${count.length}` },
+					{ name:'Roles', value: `<@&${Roles}>`, inline:true },
 
 				)
 				.setTimestamp(message.createdAt);
