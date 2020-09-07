@@ -1,4 +1,4 @@
-const weather = require('weather.js');
+const weather = require('weather-js');
 const { MessageEmbed } = require('discord.js');
 
 
@@ -23,7 +23,7 @@ module.exports = {
 			search = args.slice(0, args.length - 1).join(' ');
 		}
 
-		weather.find({ search: search, degreeType: degtype }, function(error, result) {
+		weather.find({ search: `${search}`, degreeType: `${degtype}` }, function(error, result) {
 			if(error) return message.channel.send(error);
 
 			if(result === undefined || result.length === 0) return message.channel.send('**THAT LOCATION IS INVALID**');
@@ -32,6 +32,19 @@ module.exports = {
 			const location = result[0].location;
 
 			const winfo = new MessageEmbed()
+				.setTitle(`weather for ${location.name} \n ${current.skytext}`)
+				.setDescription('Basic info:')
+				.setColor('RANDOM')
+				.setThumbnail(current.imageUrl)
+				.addFields(
+					{ name: 'Timezone', value: `${location.timezone}`, inline: true },
+					{ name: 'Degree type', value: `${degtype}`, inline: true },
+					{ name: 'Tempature', value: `${current.temperature}°`, inline: true },
+					{ name: 'Wind Stats', value: `${current.winddisplay}`, inline: true },
+					{ name: 'Feels likes', value: `${current.feelslike}°`, inline: true },
+					{ name: 'Humidity', value: `${current.humidity}%`, inline: true },
+				);
+			message.channel.send(winfo);
 		});
 	},
 };
