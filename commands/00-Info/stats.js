@@ -3,8 +3,14 @@ const { bot_info, BotColor } = require('../../config.json');
 
 module.exports = {
 	name: 'stats',
+	aliases: false,
 	category: '00',
 	description: 'Gives stats about the bot, and how it is made.',
+	cooldown: false,
+	guildOnly: false,
+	NSFW: false,
+	args: false,
+	usage: false,
 	run: async (client, message) => {
 		// COLOR PICKER BASED ON CONFIG.JSON
 		const colorarray = [`${BotColor[0]}`, `${BotColor[1]}`, `${BotColor[2]}`, `${BotColor[3]}`, `${BotColor[4]}`];

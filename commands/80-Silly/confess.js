@@ -17,7 +17,7 @@ module.exports = {
 
 			if (message.author.id == '446257790156144640'
 			|| message.author.id == '618919529472589845') {
-				return message.chanel.send('you have been banned from this command. Contact the developer if you want this to change.');
+				return message.channel.send('you have been banned from this command. Contact the developer if you want this to change.');
 			}
 			if (args[0]) {
 				let confession = args.slice(0).join(' ');

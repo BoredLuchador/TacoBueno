@@ -10,13 +10,11 @@
   "author": "PRIMO",
   "license": "ISC",
   "dependencies": {
-    "ascii-table": "0.0.9",
-    "common-tags": "^1.8.0",
     "discord.js": "^12.2.0",
-    "dotenv": "^8.2.0",
     "eslint": "^7.6.0",
     "git": "^0.1.5",
     "mime": "^2.4.6",
-    "random-puppy": "^1.1.0"
+    "random-puppy": "^1.1.0",
+    "weather.js": "^0.1.0"
   }
 }
