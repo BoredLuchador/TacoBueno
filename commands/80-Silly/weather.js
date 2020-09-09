@@ -5,7 +5,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'weather',
 	aliases: 'wtr',
-	category: '90',
+	category: '80',
 	description: 'Lets you get the some weather stats for a place',
 	cooldown : false,
 	guildOnly: false,

@@ -3,7 +3,7 @@
 module.exports = {
 	name: 'help',
 	aliases: 'h',
-	category: '00',
+	category: '99',
 	description: 'Shows a list of command, or details on one command',
 	cooldown : false,
 	guildOnly: false,
