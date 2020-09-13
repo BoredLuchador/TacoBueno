@@ -1,8 +1,5 @@
 const { MessageEmbed } = require('discord.js');
 
-// STATE OF WHOIS COMMAND = BROKEN AND UNDER //
-// TYPE OF INFO CURRENTLY OUTPUTED = ONLY PUTPUTS PFP, ID, and TAG //
-
 module.exports = {
 	name: 'whois',
 	aliases: ['userinfo', 'user', 'who' ],

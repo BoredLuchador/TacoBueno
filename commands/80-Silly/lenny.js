@@ -1,5 +1,9 @@
 /* eslint-disable no-useless-escape */
 /* eslint-disable quotes */
+
+// COMMAND IS UNFINISHED
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
 	name: 'lenny',
 	aliases: false,
@@ -15,6 +19,16 @@ module.exports = {
 
 
 		// LENNY GENERATOR
+		if (args[0] == 'help') {
+			const msg = new MessageEmbed()
+				.setColor('RANDOM')
+				.setTitle('LENNY FACE COMMAND OPTIONS')
+				.setDescription(
+					'`random`,`basic`, `classic`, `angry`, `attack`, `blush`, `creepy` ',
+				)
+				.addField('This command is not complete', '*If there are enough poeple wanting more, I will add more to the command*');
+			message.channel.send(msg);
+		}
 		if (args[0] == 'basic' || args[0] == 'random' || args == false) {
 			lenny.push('( ͡° ͜ʖ ͡°)', '(☭ ͜ʖ ☭)', '(ᴗ ͜ʖ ᴗ)', '( ° ͜ʖ °)', '(⟃ ͜ʖ ⟄) ', '( ‾ ʖ̫ ‾)', '(͠≖ ͜ʖ͠≖)', '( ͡° ʖ̯ ͡°)', 'ʕ ͡° ʖ̯ ͡°ʔ', '( ͡° ل͜ ͡°)', '( ͠° ͟ʖ ͡°)', '( ͠° ͟ʖ ͠°)', '( ͡~ ͜ʖ ͡°)', '( ͡o ͜ʖ ͡o)', '( ͡◉ ͜ʖ ͡◉)', '( ͡☉ ͜ʖ ͡☉)', '( ͡° ͜V ͡°)', 'ʕ ͡° ͜ʖ ͡°ʔ', '( ͡ᵔ ͜ʖ ͡ᵔ )', '( ͡° ͜ʖ ͡ °)');
 		}
@@ -45,10 +59,12 @@ module.exports = {
 		let x = Math.floor((Math.random() * lenny.length));
 		message.channel.send(`${lenny[x]}`)
 			.catch (err => console.log(err));
-		message.channel.send('Made with the help of https://www.lennyfaces.net/\nDo (prefix)`lenny help` to get more categories');
 
+		let y = Math.floor((Math.random() * 10 + 1));
+
+		if (y == 10) {
+			message.channel.send('Made with the help of https://www.lennyfaces.net/\nDo (prefix)`lenny help` to get more categories');
+		}
 	},
 
 };
-// I wana see whats going on
-// ok nvm

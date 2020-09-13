@@ -30,6 +30,7 @@ module.exports = {
 			const cmd01 = (commands.filter(command => command.category == '01').map(command => command.name).join('`, `'));
 			const cmd10 = (commands.filter(command => command.category == '10').map(command => command.name).join('`, `'));
 			const cmd80 = (commands.filter(command => command.category == '80').map(command => command.name).join('`, `'));
+			const cmd81 = (commands.filter(command => command.category == '80').map(command => command.name).join('`, `'));
 			const cmd85 = (commands.filter(command => command.category == '85').map(command => command.name).join('`, `'));
 
 			// Actual pages
@@ -42,6 +43,7 @@ module.exports = {
 					{ name: 'Utility', value: `\`${cmd01}\``, inline: x },
 					{ name: 'Moderation', value: `\`${cmd10}\``, inline: x },
 					{ name: 'Silly', value: `\`${cmd80}\``, inline: x },
+					{ name: 'Prawl stars bot commands (made thanks to the bot creators making it open source)', value: `\`${cmd81}\``, inline: x },
 					{ name: 'Reddit', value:  `\`${cmd85}\``, inline: x },
 					{ name: 'Want to know more about a command?', value: field, inline: false },
 				)
@@ -73,6 +75,7 @@ module.exports = {
 				if (command.category == '00') cname = 'Utility';
 				if (command.category == '10') cname = 'Moderation';
 				if (command.category == '80') cname = 'Silly';
+				if (command.category == '81') cname = 'Prawl Stars Bot commands';
 				if (command.category == '85') cname = 'Reddit';
 				if (command.category == '99') cname = 'UNDER DEVELOPMENT / BROKEN';
 			}

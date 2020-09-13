@@ -1,0 +1,27 @@
+const figlet = require('figlet');
+
+module.exports = {
+	name: 'ascii',
+	aliases: false,
+	category: '80',
+	description: 'Converts text to ascii',
+	cooldown : false,
+	guildOnly: false,
+	NSFW: false,
+	args: true,
+	usage: '<Text to convert>',
+	run: async (client, message, args) => {
+
+		let msg = args.join(' ');
+
+		figlet.text(msg, function(err, data) {
+			if(err) {
+				console.log('Something went wrong');
+				console.dir(err);
+			}
+			if(data.length > 2000) return message.channel.send('Please provide text shorter than 2000 characters');
+
+			message.channel.send('```' + data + '```');
+		});
+	},
+};

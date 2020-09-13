@@ -7,9 +7,15 @@ module.exports = {
 	guildOnly : true,
 	NSFW : false,
 	args: true,
-	usage: '<ON/OFF>',
+	usage: '[channel/id] <ON/OFF>',
 	run: async (client, message, args) => {
-		const ans = args[0].toLowerCase();
+		let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]) || undefined;
+		let ans = args[1];
+
+		if (channel == undefined) {
+			channel = message.channel;
+			ans = args[0];
+		}
 
 		try {
 			if(message.member.hasPermission('MANAGE_CHANNELS') || message.member.hasPermission('MANAGE_GUILD')) {
@@ -17,12 +23,12 @@ module.exports = {
 					return message.channel.send('Dude, that isn\'t a valid option :eyes:');
 				}
 				if (ans == 'on') {
-					message.channel.setNSFW(true);
+					channel.setNSFW(true);
 				}
 				if (ans == 'off') {
-					message.channel.setNSFW(false);
+					channel.setNSFW(false);
 				}
-				message.channel.send(`sucuessfully set nsfw ${args[0]}`);
+				message.channel.send(`sucuessfully set nsfw ${ans} in ${channel}`);
 			}
 			else {return message.reply('You do not have the `MANAGE_CHANNEL` or `MANAGE_GUILD` permissions.');}
 

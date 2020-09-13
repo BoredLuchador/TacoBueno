@@ -3,7 +3,7 @@ const randomPuppy = require('random-puppy');
 
 
 module.exports = {
-	name: 'abrupt chaos',
+	name: 'abrupt-chaos',
 	aliases: ['rac', 'Whatcouldgowrong', 'WTF', 'perfectlycutscreams', 'WatchPeopleDieInside', 'KidsAreFuckingStupid', 'holdmyfeedingtube', 'WinStupidPrizes'],
 	category: '85',
 	description: 'Gives you some chaos from the depths of Reddit.',
