@@ -30,7 +30,7 @@ module.exports = {
 			const cmd01 = (commands.filter(command => command.category == '01').map(command => command.name).join('`, `'));
 			const cmd10 = (commands.filter(command => command.category == '10').map(command => command.name).join('`, `'));
 			const cmd80 = (commands.filter(command => command.category == '80').map(command => command.name).join('`, `'));
-			const cmd81 = (commands.filter(command => command.category == '80').map(command => command.name).join('`, `'));
+			const cmd81 = (commands.filter(command => command.category == '81').map(command => command.name).join('`, `'));
 			const cmd85 = (commands.filter(command => command.category == '85').map(command => command.name).join('`, `'));
 
 			// Actual pages
@@ -39,13 +39,13 @@ module.exports = {
 				.setColor(`${colorarray[color]}`)
 				.setTitle(title)
 				.addFields(
-					{ name: 'Info', value: `\`${cmd00}\``, inline: x },
-					{ name: 'Utility', value: `\`${cmd01}\``, inline: x },
-					{ name: 'Moderation', value: `\`${cmd10}\``, inline: x },
-					{ name: 'Silly', value: `\`${cmd80}\``, inline: x },
-					{ name: 'Prawl stars bot commands (made thanks to the bot creators making it open source)', value: `\`${cmd81}\``, inline: x },
-					{ name: 'Reddit', value:  `\`${cmd85}\``, inline: x },
-					{ name: 'Want to know more about a command?', value: field, inline: false },
+					{ name: '**Info**', value: `\`${cmd00}\``, inline: x },
+					{ name: '**Utility**', value: `\`${cmd01}\``, inline: x },
+					{ name: '**Moderation**', value: `\`${cmd10}\``, inline: x },
+					{ name: '**Silly**', value: `\`${cmd80}\``, inline: x },
+					{ name: '**Prawl stars bot commands (made thanks to the bot creators making it open source)**', value: `\`${cmd81}\``, inline: x },
+					{ name: '**Reddit**', value:  `\`${cmd85}\``, inline: x },
+					{ name: '**Want to know more about a command?**', value: field, inline: false },
 				)
 				.setTimestamp();
 
