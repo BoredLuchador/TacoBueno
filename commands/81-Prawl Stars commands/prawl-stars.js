@@ -19,8 +19,8 @@ module.exports = {
 			.setURL('https://top.gg/bot/630084558083063828')
 			.addFields(
 				{ name: 'bot author', value: '<@406028027768733696>' },
-				{ name: 'Why am I using the code?', value: 'Sadly the bot is going down, and I wanted to keep some memories of it. It made things easier since the bot ewent open source.' },
-				{ name: 'Which commands are from the prawl stars bot?', value: 'They are the commands that reacts with a=the pride flag. They even have thier own category.' },
+				{ name: 'Why am I using the code?', value: 'Sadly the bot is going down, and I wanted to keep some memories of it. It made things easier since the bot went open source.' },
+				{ name: 'Which commands are from the prawl stars bot?', value: 'They are the commands that reacts with a=the pride flag. They even have their own category.' },
 			);
 
 		message.channel.send(msg);

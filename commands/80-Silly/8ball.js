@@ -39,7 +39,7 @@ module.exports = {
 			let ans = Math.floor((Math.random() * replies.length));
 
 			const embed = new MessageEmbed()
-				.setTitle(`Original question from ${message.author}:\n${question.join(' ')}`)
+				.setTitle(`Original question from ${message.author.username}:\n${question.join(' ')}`)
 				.setDescription(`Result: ${replies[ans]}`)
 				.setColor('RANDOM')
 				.setTimestamp();

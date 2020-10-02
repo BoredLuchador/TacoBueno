@@ -8,15 +8,24 @@ module.exports = {
 	guildOnly: true,
 	args: true,
 	usage: '<confession>',
-	cooldown: 10,
+	cooldown: 50,
 	run: async (client, message, args) => {
 		try {
 			// ANTI SPAM COMMAND
 			if (message.deletable) message.delete();
 			if (args.length > 32) return message.channel.send('Im not gonna let you shitpost like that');
 
+			// Command ban filter
 			if (message.author.id == '446257790156144640'
-			|| message.author.id == '  ') {
+			// Bans bear
+			|| message.author.id == '649464520833630228'
+			// Crowy id
+			|| message.author.id == '566731841898414081'
+			|| message.author.id == '711500299327504434'
+			|| message.author.id == '621345547558584352'
+			|| message.author.id == '558291497599107072'
+			|| message.author.id == '295700246808231936'
+			|| message.author.id == '687312215749165165') {
 				return message.channel.send('you have been banned from this command. Contact the developer if you want this to change.');
 			}
 			if (args[0]) {
