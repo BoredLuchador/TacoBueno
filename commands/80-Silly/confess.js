@@ -15,12 +15,14 @@ module.exports = {
 			if (message.deletable) message.delete();
 			if (args.length > 32) return message.channel.send('Im not gonna let you shitpost like that');
 
+			// Server ban filter (TEMPOARY
+			if (message.member.roles.cache.find(r => r.id === '761963923980288001')) {
+				return message.channel.send('you have been banned from this command by the server mods. Contact the staff team if you want this to change.');
+			}
 			// Command ban filter
 			if (message.author.id == '446257790156144640'
 			// Bans bear
 			|| message.author.id == '649464520833630228'
-			// Crowy id
-			|| message.author.id == '566731841898414081'
 			|| message.author.id == '711500299327504434'
 			|| message.author.id == '621345547558584352'
 			|| message.author.id == '558291497599107072'
