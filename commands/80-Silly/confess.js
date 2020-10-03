@@ -20,14 +20,7 @@ module.exports = {
 				return message.channel.send('you have been banned from this command by the server mods. Contact the staff team if you want this to change.');
 			}
 			// Command ban filter
-			if (message.author.id == '446257790156144640'
-			// Bans bear
-			|| message.author.id == '649464520833630228'
-			|| message.author.id == '711500299327504434'
-			|| message.author.id == '621345547558584352'
-			|| message.author.id == '558291497599107072'
-			|| message.author.id == '295700246808231936'
-			|| message.author.id == '687312215749165165') {
+			if (message.author.id == '446') {
 				return message.channel.send('you have been banned from this command. Contact the developer if you want this to change.');
 			}
 			if (args[0]) {
