@@ -1,5 +1,6 @@
-const { prefix, BotColor } = require('../../config.json');
+const { Dprefix, BotColor } = require('../../config.json');
 const Discord = require('discord.js');
+const prefix = require('../../models/prefix.js');
 
 module.exports = {
 	name: 'help',
@@ -12,17 +13,25 @@ module.exports = {
 	args: false,
 	usage: '[command | alias of command]',
 	run: async (client, message, args) => {
+		// MONGODB PREFIX
+		const data = await prefix.findOne({
+			GuildID: message.guild.id,
+		});
+		let Prefix = Dprefix;
+		if(data) {
+			Prefix = data.Prefix;
+		}
 		// Picks the color based on Taco Bueno color palette defined in Config.json NO LONGER USED
 		const colorarray = [`${BotColor[0]}`, `${BotColor[1]}`, `${BotColor[2]}`, `${BotColor[3]}`, `${BotColor[4]}`];
 		let color = Math.floor((Math.random() * colorarray.length));
 
 		// Creates empty array and loads command data //
-		const data = [];
+		const data1 = [];
 		const { commands } = message.client;
 
 		if (!args.length) {
 			const title = ('Here\'s a list of all my commands:');
-			const field = (`You can send \`${prefix}help [command name]\` to get info on a specific command!`);
+			const field = (`You can send \`${Prefix}help [command name]\` to get info on a specific command!`);
 			const x = false;
 
 			// PAGE 1 file sorter
@@ -81,15 +90,15 @@ module.exports = {
 			}
 
 			// Help command page (Not in embed format yet)
-			data.push(`**Name:** ${command.name}`);
-			if (command.category) data.push(`**Category:** ${cname}`);
-			if (command.aliases) data.push(`**Aliases:** ${command.aliases}`);
-			if (command.description) data.push(`**Description:** ${command.description}`);
-			if (command.usage) data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
+			data1.push(`**Name:** ${command.name}`);
+			if (command.category) data1.push(`**Category:** ${cname}`);
+			if (command.aliases) data1.push(`**Aliases:** ${command.aliases}`);
+			if (command.description) data1.push(`**Description:** ${command.description}`);
+			if (command.usage) data1.push(`**Usage:** ${Prefix}${command.name} ${command.usage}`);
 
-			data.push(`**Cooldown:** ${command.cooldown || 2} second(s)`);
+			data1.push(`**Cooldown:** ${command.cooldown || 2} second(s)`);
 
-			message.channel.send(data, { split: true });
+			message.channel.send(data1, { split: true });
 		}
 	},
 };

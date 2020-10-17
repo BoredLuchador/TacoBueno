@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'clown',
 	aliases: 'clown',
-	category: '99',
+	category: '80',
 	description: 'The confession command but for shitposting',
 	cooldown : 30,
 	guildOnly: true,

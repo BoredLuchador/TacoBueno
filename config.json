@@ -1,9 +1,9 @@
 {
-    "prefix" : "_",
+    "Dprefix" : "_",
     "token" : "Njk5Njc1NzIwMjA0NjgxMjM2.XpX6BQ.0j-6JO7VK2zPSffnztnDE5xOsfI",
     "bot_info" : {
         "name" : "Taco Bueno",
-        "Version" : "Round one 2.8.1",
+        "Version" : "v.2.8.5",
         "Author" : "El Primo the thicc gae God",
         "Libary" : "Discord js v12.2.0",
         "hosting_provider" : "Heroku",
@@ -12,7 +12,7 @@
     "BotColor" : ["#ff8b1c", "#fc251d", "#0faa17", "#059dfc", "#fee36b"],
 
     "Status" : {
-        "Message" : "El Primo work out. 0-0",
+        "Message" : "El Primo do some weight lifting. 0-0",
         "Type" : ["WATCHING"]
     }
 }

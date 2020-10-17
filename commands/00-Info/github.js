@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'github',
 	aliases: ['git', 'source-code'],
-	category: '99',
+	category: '00',
 	description: 'Shows the link to the Taco Bueno source code on Github.',
 	cooldown : false,
 	guildOnly: false,
