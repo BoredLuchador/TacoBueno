@@ -45,7 +45,7 @@ client.once('ready', () => {
 client.on('message', async (message) => {
 
 	// Gets guild id when command is run with prefix
-	if (!message.guild || message.author.bot) return;
+	if (!message.guild || message.author.bot || message.mentions.everyone) return;
 
 
 	const data = await prefix.findOne({
@@ -59,7 +59,8 @@ client.on('message', async (message) => {
 	// Sends prefix by mentioning the bot. also uses mentioning the bot as the prefix
 	if(data) {
 
-		if (message.mentions.has(client.user)) {
+		if (message.mentions.has(client.user, { ignoreEveryone: true })) {
+
 			message.channel.send(`My prefix for this server is \`${Prefix}\`.`);
 		}
 		else {
