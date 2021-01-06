@@ -4,7 +4,7 @@ const randomPuppy = require('random-puppy');
 
 module.exports = {
 	name: 'abrupt-chaos',
-	aliases: ['rac', 'Whatcouldgowrong', 'WTF', 'perfectlycutscreams', 'WatchPeopleDieInside', 'KidsAreFuckingStupid', 'holdmyfeedingtube', 'WinStupidPrizes'],
+	aliases: ['rac'],
 	category: '85',
 	description: 'Gives you some chaos from the depths of Reddit.',
 	cooldown : 5,
@@ -12,7 +12,7 @@ module.exports = {
 	usage: false,
 	run: async (client, message) => {
 		// Subreddits
-		const subReddits = ['AbruptChaos', 'Whatcouldgowrong', 'WTF', 'perfectlycutscreams', 'WatchPeopleDieInside', 'KidsAreFuckingStupid', 'holdmyfeedingtube', 'WinStupidPrizes'];
+		const subReddits = ['AbruptChaos'];
 		const x = Math.floor((Math.random() * subReddits.length));
 		const img = await randomPuppy(subReddits[x]);
 

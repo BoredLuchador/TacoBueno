@@ -9,13 +9,14 @@ module.exports = {
 	description: 'Allows you to look up a subreddit if there isn\'t a preset for your tastes yet',
 	cooldown : 5,
 	guildOnly: false,
-	NSFW : true,
+	NSFW : false,
+	// This is marked as not nsfw only because there is a custom response if the channel is not properly marked
 	args: true,
 	usage: '<Subreddit>',
 	run: async (client, message, args) => {
 		// Subreddits
 		try {
-			if(message.channel.nsfw == false) {return message.channel.send('Umm this channel doesn\'t has the requirement for this command to work safely');}
+			if(message.channel.nsfw == false) {return message.channel.send('This command is mark as nsfw because poeple have been known to use this command to send nsfw content in channels that are not proplerly marked. In the meantime, please use a marked channel or ask a Staff Member to make the channel nsfw for you');}
 			else{
 				const subReddits = [args[0]];
 				const x = Math.floor((Math.random() * subReddits.length));
