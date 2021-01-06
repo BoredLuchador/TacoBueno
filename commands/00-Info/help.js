@@ -59,6 +59,7 @@ module.exports = {
 				.setTimestamp();
 
 			await message.author.send(pg1)
+
 				.then(() => {
 					if (message.channel.type === 'dm') return;
 					message.reply('I\'ve sent you a DM with all my commands!');
@@ -81,7 +82,7 @@ module.exports = {
 
 
 				if (command.category == '00') cname = 'Info';
-				if (command.category == '00') cname = 'Utility';
+				if (command.category == '01') cname = 'Utility';
 				if (command.category == '10') cname = 'Moderation';
 				if (command.category == '80') cname = 'Silly';
 				if (command.category == '81') cname = 'Prawl Stars Bot commands';
