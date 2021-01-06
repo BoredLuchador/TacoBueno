@@ -1,5 +1,4 @@
 node_modules/
-package-lock.josn
 config.josn
 .idea/
 .env
