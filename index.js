@@ -1,7 +1,8 @@
 // Things the Code depends on
+require('dotenv').config();
 const fs = require('fs');
 const { Client, Collection } = require('discord.js');
-const { Dprefix, token, Status } = require('./config.json');
+const { Dprefix, Status } = require('./config.json');
 const mongoose = require('mongoose');
 const prefix = require('./models/prefix.js');
 
@@ -212,4 +213,4 @@ client.on('unhandledRejection', error => console.error('Uncaught Promise Rejecti
 
 
 // Logging the bot in//
-client.login(token);
+client.login(process.env.TOKEN);
