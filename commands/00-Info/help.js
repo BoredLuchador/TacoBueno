@@ -31,7 +31,7 @@ module.exports = {
 
 		if (!args.length) {
 			const title = ('Here\'s a list of all my commands:');
-			const field = (`You can send \`${Prefix}help [command name]\` to get info on a specific command!`);
+			const field = (`You can send \`${Prefix}help [command name]\` to get info on a specific command!\nThis will even reveal hidden options for some commands.`);
 			const x = false;
 
 			// PAGE 1 file sorter
