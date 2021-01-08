@@ -34,7 +34,7 @@ They are found in the help command and listing them here would be very inefficie
 
 ## Bot Hosting
 
-Due to the fact that I do not use Windows or Mac, you are on your own when it goes to hosting the bot since I do not know how to help you. 
+Due to the fact that I do not use Windows or Mac, you are on your own when it goes to hosting the bot since I do not know how to help you, other than tell you to create an `.env` file and put your token there.
 
 ## Issues and suggestions
 
