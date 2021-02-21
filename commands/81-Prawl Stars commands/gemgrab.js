@@ -35,7 +35,7 @@ module.exports = {
 			}
 			if (gem2 === 2) {
 				data.push(
-					'The teammate with the gems died, but you got them back',
+					'The teammate with the gems died, but you got them back.',
 				);
 			}
 		}

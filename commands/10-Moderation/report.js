@@ -28,22 +28,23 @@ module.exports = {
 				return message.channel.send('You did not specify a reason for the report!');
 			}
 
+			// This part allows the uage of pfps and also searches for a channel by name //
 			let Avatar = User.displayAvatarURL({ format: 'png', dynamic: true });
 			let Channel = message.guild.channels.cache.find(ch=>ch.name.includes('reports'));
 			if (!Channel) return message.channel.send('There is no channel in this guild which is called `reports`') ;
 
 			let Embed = new Discord.MessageEmbed()
-				.setTitle('New report!')
+				.setTitle('**INCOMING REPORT**')
 				.setDescription(`The user \`${message.author.tag}\` has reported \`${User.tag}\`! `)
 				.setColor('RANDOM')
 				.setThumbnail(Avatar)
 				.addFields(
-					{ name:'User ID', value:`${message.author.id}`, inline:true },
-					{ name:'User Tag', value:`${message.author.tag}`, inline:true },
-					{ name:'Reported ID', value:`${User.id}`, inline:true },
-					{ name:'Reported Tag', value:`${User.tag}`, inline:true },
-					{ name:'Reason', value:`\`${Reason.slice(0)}\``, inline:true },
-					{ name:'Date (M/D/Y)', value:`${new Intl.DateTimeFormat('en-US').format(Date.now())}`, inline:true },
+					{ name:'**User ID**', value:`\`${message.author.id}\``, inline:true },
+					{ name:'**User Tag**', value:`\`${message.author.tag}\``, inline:true },
+					{ name:'**Reported ID**', value:`\`${User.id}\``, inline:true },
+					{ name:'**Reported Tag**', value:`\`${User.tag}\``, inline:true },
+					{ name:'**Reason**', value:`\`${Reason.slice(0)}\``, inline:true },
+					{ name:'**Date (M/D/Y)**', value:`${new Intl.DateTimeFormat('en-US').format(Date.now())}`, inline:true },
 				);
 			try{
 				Channel.send(Embed);
