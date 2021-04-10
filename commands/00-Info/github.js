@@ -16,7 +16,7 @@ module.exports = {
 			.setColor('#9AAB8C')
 			.setTitle('source code')
 			.setURL('https://github.com/PrimoPunch/tacobueno')
-			.setDescription('Here is the link to the source code!');
+			.setDescription('Here is the link to the source code! You can also help out in this project!');
 
 		message.channel.send(Embed);
 	},
