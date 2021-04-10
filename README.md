@@ -44,5 +44,20 @@ Other avuenes for support coming soon
 These open source projects has been extremely valuable to expanding the capabilities of this bot.
 
 ### Prawlstars
-[Source Code](https://glitch.com/edit/#!/prawl-stars-gayme?path=server.js%3A1%3A0https://glitch.com/edit/#!/prawl-stars-gayme?path=server.js%3A1%3A0)
+[Source Code] (https://glitch.com/edit/#!/prawl-stars-gayme?path=server.js%3A1%3A0https://glitch.com/edit/#!/prawl-stars-gayme?path=server.js%3A1%3A0)
+
 This bot is highly focused on Brawl Stars, an Mobile Game avaliable on IOS and Android. Sadly this bot has went down, and this bot is essensially a fork of this project. The commands from this bot will have thier own identifiers seperate from the others.
+## Dependencies
+
+| Dependencies | Version |
+|--------------|---------|
+| discord.js   | 12.5.3  |
+| dotenv       | 8.2.0   |
+| eslint       | 8.24.0  |
+| figlet       | 1.5.0   |
+| git          | 0.1.5   |
+| mime         | 2.5.2   |
+| mongoose     | 5.12.3  |
+| random-puppy | 1.1.0   |
+| weather.js   | 2.0.0   |
+
