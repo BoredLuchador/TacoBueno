@@ -1,4 +1,4 @@
-This is basically a table of the commands and some basic details. It is still better to use the help command since the help command is much easier to update
+This is basically a table of the commands and some basic details. It is still better to use the help command since the help command is much easier to update.
 
 | Commands       |  |
 |----------------|--|
