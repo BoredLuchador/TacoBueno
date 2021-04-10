@@ -1,7 +1,6 @@
 # Taco Bueno
 
-Taco Bueno is a partially open source bot that is under development. 
-This does not focuses on features that every bot has, rather instead going for the features that would make your server more smooth.
+Taco Bueno is an open source project that is designed to add some features to a discord server. Many commands will have hidden stuff that may prove extremely useful.
 
 # features
 
@@ -16,27 +15,30 @@ This does not focuses on features that every bot has, rather instead going for t
 
 ### How to get started
 
-1) Ping the bot to get the prefix
-2) Get the help page using the `help` command
-3) Start punching your keyboard to make the bot do stuff
-4) Try to find out why there are some hidden options within random commands
+1) Invite the bot to the server
+2) Ping the bot to get the prefix
+3) Get the help page using the `help` command
+4) Start punching your keyboard to make the bot do stuff
+5) Try to find out why there are some hidden options within random commands
 
 ## Commands
-They are found in the help command and listing them here would be very inefficient.
-
+command page comming soon
 # Info 
-
-## Support Server
-
-- Getting into the server requires you to wait for a while
-- The server is the go to place to contact the devs if you find a bug or want to suggest a feature
-[Link to Discord server](https://discord.gg/EGPC2Js)
 
 ## Bot Hosting
 
 Due to the fact that I do not use Windows or Mac, you are on your own when it goes to hosting the bot since I do not know how to help you, other than tell you to create an `.env` file and put your token there.
 
+Make sure you pick a good host and send them the correct info.
+
 ## Issues and suggestions
 
-I do not check Github very often, so please open a ticket in the support server. Since this bot is being developed by a single person using a toaster, expect fixes to be slow unless you can help out by submitting code changes.
+###  Github
+You can open an issue in Github. Make sure you also send a error message if you revieved any from the bot. Since I am working from a toaster, feel free to give me some ideas or create a pull request to contribite to the project
+### Discord
+This would be a more direct way to contact me for support, just know that I will have a much harder time managing through this server.
+[Link to Discord server](https://discord.gg/EGPC2Js)
+
+
+Other avuenes for support coming soon
 
