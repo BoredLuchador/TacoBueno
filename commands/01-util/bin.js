@@ -9,6 +9,7 @@ module.exports = {
 		const binlink = new Discord.MessageEmbed()
 			.setColor('#F9BF45')
 			.setTitle('PrivateBin link')
+			// This is just a link to send private stuff to people for a tempoary amount of time.
 			.setURL('https://privatebin.at')
 			.setDescription('This is the more privacy respecting paste bin. \n\nFeel free to use this to send large files, massive wall of texts, or a private way to send messages to someone.')
 			.addFields(
