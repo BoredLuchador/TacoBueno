@@ -23,12 +23,11 @@ module.exports = {
 			.setDescription('Wow I\'m very susprised that you care enough about me to look up my stats. These are some basic info that will change from time to time.')
 			.addFields (
 				{ name: 'name', value: `${bot_info.name}` },
-				{ name: 'Version', value:`${bot_info.Version}` },
 				{ name: 'Author', value:`${bot_info.Author}` },
 				{ name: 'Hosting Provider', value: `${bot_info.hosting_provider}` },
 				{ name: 'Libary', value:`${bot_info.Libary}` },
-				{ name: 'Operating System', value: `${bot_info.Platform}` },
 				{ name: 'Server count', value: `${client.guilds.cache.size}` },
+				{ name: 'Github Link', value: 'https://github.com/BoredLuchador/TacoBueno'}
 			);
 		try{
 			message.channel.send(embed);
