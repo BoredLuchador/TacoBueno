@@ -21,7 +21,7 @@ module.exports = {
 		if(data) {
 			Prefix = data.Prefix;
 		}
-		// Picks the color based on Taco Bueno color palette defined in Config.json NO LONGER USED
+		// Picks the color based on Taco Bueno color palette defined in Config.json
 		const colorarray = [`${BotColor[0]}`, `${BotColor[1]}`, `${BotColor[2]}`, `${BotColor[3]}`, `${BotColor[4]}`];
 		let color = Math.floor((Math.random() * colorarray.length));
 
@@ -57,9 +57,11 @@ module.exports = {
 					{ name: '**Want to know more about a command?**', value: field, inline: false },
 				)
 				.setTimestamp();
+			// New Pages will go here if there is a need to
 
 			await message.author.send(pg1)
 
+				// Tests to see if sending the help message to DMs is sucuessful.
 				.then(() => {
 					if (message.channel.type === 'dm') return;
 					message.reply('I\'ve sent you a DM with all my commands!');
@@ -71,6 +73,7 @@ module.exports = {
 				});
 		}
 		else {
+			// Will only occour if there is any text after the help command
 			const name = args[0].toLowerCase();
 			const command = commands.find(c => c.name && c.name.includes(name)) || commands.find(c => c.aliases && c.aliases.includes(name));
 
@@ -100,7 +103,13 @@ module.exports = {
 
 			data1.push(`**Cooldown:** ${command.cooldown || 2} second(s)`);
 
-			message.channel.send(data1, { split: true });
+			const dataembed = new Discord.MessageEmbed()
+				.setColor(`${colorarray[color]}`)
+				.setTitle(`Heres some info on ${command.name}`)
+				.field(data1, { split: true });
+
+			message.channel.send(dataembed);
+			// Useful piece of code for sending raw array- data1, { split: true }
 		}
 	},
 };
