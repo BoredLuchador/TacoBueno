@@ -114,6 +114,7 @@ module.exports = {
 
 			}
 			catch (error) {
+				// Will only happen if the bot for some reason can not send the embed
 				message.channel.send(data1, { split: true });
 			}
 
