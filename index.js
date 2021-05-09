@@ -8,7 +8,7 @@ const prefix = require('./models/prefix.js');
 
 // Setup //
 const client = new Client();
-mongoose.connect('mongodb+srv://primosause:Qf6pnukTVPaxH4@tacobueno-cluster-1.ywx77.mongodb.net/data', {
+mongoose.connect(process.env.DATA, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });

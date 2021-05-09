@@ -15,7 +15,7 @@ module.exports = {
 		const Embed = new MessageEmbed()
 			.setColor('#9AAB8C')
 			.setTitle('source code')
-			.setURL('https://github.com/PrimoPunch/tacobueno')
+			.setURL('https://github.com/BoredLuchador/TacoBueno')
 			.setDescription('Here is the link to the source code! You can also help out in this project!');
 
 		message.channel.send(Embed);
