@@ -2,11 +2,9 @@
     "Dprefix" : "_",
     "bot_info" : {
         "name" : "Taco Bueno",
-        "Version" : "v.2.8.6",
         "Author" : "El Primo the thicc gae God",
         "Libary" : "Discord js v12.2.0",
-        "hosting_provider" : "Heroku",
-        "Platform" : "POPOS 20.04 LTS"
+        "hosting_provider" : "Heroku"
     },
     "BotColor" : ["#ff8b1c", "#fc251d", "#0faa17", "#059dfc", "#fee36b"],
 
