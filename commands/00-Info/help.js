@@ -94,7 +94,7 @@ module.exports = {
 				if (command.category == '99') cname = 'UNDER DEVELOPMENT / BROKEN';
 			}
 
-			// Help command page (Not in embed format yet)
+			// Help command page
 			data1.push(`**Name:** ${command.name}`);
 			if (command.category) data1.push(`**Category:** ${cname}`);
 			if (command.aliases) data1.push(`**Aliases:** ${command.aliases}`);
@@ -102,8 +102,21 @@ module.exports = {
 			if (command.usage) data1.push(`**Usage:** ${Prefix}${command.name} ${command.usage}`);
 
 			data1.push(`**Cooldown:** ${command.cooldown || 2} second(s)`);
+			try {
+				const cmdembed = new Discord.MessageEmbed()
+					.setColor('RANDOM')
+					.setTitle ('Here is some info for you...')
+					.setDescription(data1, { split: true })
 
-			message.channel.send(data1, { split: true });
+					.setTimestamp();
+
+				message.channel.send(cmdembed);
+
+			}
+			catch (error) {
+				message.channel.send(data1, { split: true });
+			}
+
 			// Useful piece of code for sending raw array- data1, { split: true }
 		}
 	},
