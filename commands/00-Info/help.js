@@ -67,6 +67,7 @@ module.exports = {
 				.catch(error => {
 					console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
 					message.reply('it seems like I can\'t DM you! Do you have DMs disabled? :pleading_face: ');
+					message.channel.send(pg1);
 				});
 		}
 		else {
