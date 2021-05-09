@@ -11,12 +11,14 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.5.3",
+    "discord.js-minesweeper": "^1.0.6",
     "dotenv": "^8.2.0",
     "eslint": "^7.24.0",
     "figlet": "^1.5.0",
     "git": "^0.1.5",
     "mime": "^2.5.2",
     "mongoose": "^5.12.3",
+    "random-jokes-api": "^1.5.9",
     "random-puppy": "^1.1.0",
     "weather-js": "^2.0.0"
   }
