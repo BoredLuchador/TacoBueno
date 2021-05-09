@@ -6,7 +6,6 @@ This is basically a table of the commands and some basic details. It is still be
 
 | Commands       | Args needed? |
 |----------------|--------------|
-| GitHub         | ❌            |
 | help           | ⚠️           |
 | invite         | ❌            |
 | stats          | ❌            |
