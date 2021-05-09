@@ -103,12 +103,22 @@ module.exports = {
 
 			data1.push(`**Cooldown:** ${command.cooldown || 2} second(s)`);
 
-			const dataembed = new Discord.MessageEmbed()
-				.setColor(`${colorarray[color]}`)
-				.setTitle(`Heres some info on ${command.name}`)
-				.field(data1, { split: true });
 
-			message.channel.send(dataembed);
+			try{
+				const dataembed = new Discord.MessageEmbed()
+					.setColor('RANDOM')
+					.setTitle(`Heres some info on ${command.name}`)
+					.addFields (
+						{ name: '** **', value: `${data1, { split: true }}`, inline: false },
+					)
+
+					.setTimestamp();
+
+				message.channel.send(dataembed);
+			}
+			catch (error) {
+				message.channel.send(data1, { split: true });
+			}
 			// Useful piece of code for sending raw array- data1, { split: true }
 		}
 	},
