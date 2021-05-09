@@ -17,13 +17,36 @@ module.exports = {
 		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
 		if(!member) return message.channel.send('Can\'t seem to find this user. Sorry \'bout that :/');
-		if(!member.deleted) return message.channel.send('This user can\'t be banned. It is either because they are a mod/admin, or their highest role is higher than mine');
+		if(!member.deleted) return message.channel.send('This user can\'t be unbanned. They are defintely not banned');
 
-		if(member.id === message.author.id) return message.channel.send('Bruh, I\'m not dumb enough to let you ban yourself. Try kicking yourself out, it works for sure.');
+		if(member.id === message.author.id) return message.channel.send('Can you explain to me how you will unaban yourself from a server that you are texting in? ');
 
 		let reason = args.slice(1).join(' ');
 
 		if(reason === undefined) reason = 'Unspecified';
+
+		member.unban(reason)
+			.catch(err => {
+				if(err) return message.channel.send('Something went wrong');
+			});
+
+		const unbanembed = new MessageEmbed()
+			.setTitle('Member Unanned')
+			.setThumbnail(member.user.displayAvatarURL())
+			.addField('User Unanned', member)
+			.addField('unbanned by', message.author)
+			.addField('Reason', reason)
+			.setFooter('Time unbanned', client.user.displayAvatarURL())
+			.setTimestamp();
+
+		message.channel.send(unbanembed);
+
+		try {
+			member.send(`You were unbanned from ${message.guild.name} for ${reason}`);
+		}
+		catch (err) {
+			return;
+		}
 
 	},
 };
