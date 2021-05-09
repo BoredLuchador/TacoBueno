@@ -1,7 +1,7 @@
 /* eslint-disable no-empty-function */
 /* eslint-disable no-unused-vars */
 module.exports = {
-	name: 'akljsalskjaskl',
+	name: 'blank',
 	aliases: 'h',
 	category: '99',
 	description: 'Shows a list of command, or details on one command',
