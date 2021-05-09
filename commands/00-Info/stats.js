@@ -27,7 +27,7 @@ module.exports = {
 				{ name: 'Hosting Provider', value: `${bot_info.hosting_provider}` },
 				{ name: 'Libary', value:`${bot_info.Libary}` },
 				{ name: 'Server count', value: `${client.guilds.cache.size}` },
-				{ name: 'Github Link', value: 'https://github.com/BoredLuchador/TacoBueno'}
+				{ name: 'Github Link', value: 'https://github.com/BoredLuchador/TacoBueno' },
 			);
 		try{
 			message.channel.send(embed);
