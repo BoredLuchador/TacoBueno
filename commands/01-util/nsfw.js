@@ -12,12 +12,14 @@ module.exports = {
 		let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]) || undefined;
 		let ans = args[1];
 
+		// Defaults to channel the message was sent if the target channel is not defined
 		if (channel == undefined) {
 			channel = message.channel;
 			ans = args[0];
 		}
 
 		try {
+			// Checks to see if the message author has the required premission in the server.
 			if(message.member.hasPermission('MANAGE_CHANNELS') || message.member.hasPermission('MANAGE_GUILD')) {
 				if (ans != 'on' && ans != 'off') {
 					return message.channel.send('Dude, that isn\'t a valid option :eyes:');
