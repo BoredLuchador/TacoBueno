@@ -64,10 +64,10 @@ This bot is highly focused on Brawl Stars, an Mobile Game avaliable on IOS and A
 
 ----
 ## Credits to
-[The Source code](https://www.youtube.com/channel/UCNXt2MrZaqfIBknamqwzeXA)
-[Stuy](https://www.youtube.com/user/DatAdam93/featured) 
-[Menu Docs](https://www.youtube.com/channel/UCpGGFqJP9vYvzFudqnQ-6IA/featured) 
-[Salvage_Dev](https://www.youtube.com/channel/UC7-pjRSGoNEMoIujwOH2Mhw/featured) 
-[thesportstacker](https://www.youtube.com/c/AnonymousSportStacker)
-[beep-bot](https://github.com/MikalMirkas/beep-bot#beep-bot)
-[Max-Bot](https://github.com/beCoditive/Max-Bot#max-bot-v255)
+- [The Source code](https://www.youtube.com/channel/UCNXt2MrZaqfIBknamqwzeXA)
+- [Stuy](https://www.youtube.com/user/DatAdam93/featured) 
+- [Menu Docs](https://www.youtube.com/channel/UCpGGFqJP9vYvzFudqnQ-6IA/featured) 
+- [Salvage_Dev](https://www.youtube.com/channel/UC7-pjRSGoNEMoIujwOH2Mhw/featured) 
+- [thesportstacker](https://www.youtube.com/c/AnonymousSportStacker)
+- [beep-bot](https://github.com/MikalMirkas/beep-bot#beep-bot)
+- [Max-Bot](https://github.com/beCoditive/Max-Bot#max-bot-v255)
