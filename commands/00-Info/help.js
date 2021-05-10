@@ -68,7 +68,11 @@ module.exports = {
 				})
 				.catch(error => {
 					console.error(`Could not send help DM to ${message.author.tag}.\n`, error);
-					message.reply('it seems like I can\'t DM you! Do you have DMs disabled? :pleading_face: ');
+					// This message will get deleted after some time
+					message.reply('it seems like I can\'t DM you! Do you have DMs disabled? :pleading_face: ')
+						.then(msg => {
+							msg.delete(10000);
+						});
 					message.channel.send(pg1);
 				});
 		}
