@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 // Currently broken DO NOT USE
 module.exports = {
-	name: 'unban1',
+	name: 'unban',
 	aliases: false,
 	category: '10',
 	description: 'Unbans someone that was previously banned from the server',
@@ -19,13 +19,12 @@ module.exports = {
 		let reason = args.slice(1).join(' ');
 		if(reason === undefined) reason = 'Unspecified';
 
-		let member = client.users.resolveID(args[0]);
-
-		message.guild.fetchBan(member).then(user => {
-			message.guild.members.unban(`${user}}, ${reason}`)
-				.catch(err => {
-					if(err) return message.channel.send(`Something went wrong ${err}`);
-				});
+		let userID = args[0];
+		message.guild.fetchBans().then(bans=> {
+			if(bans.size == 0) return ;
+			let bUser = bans.find(b => b.user.id == userID);
+			if(!bUser) return;
+			message.guild.members.unban(bUser.user);
 		});
 
 		const unbanembed = new MessageEmbed()
