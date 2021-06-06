@@ -5,13 +5,17 @@ module.exports = {
 	name: 'prefix-set',
 	aliases: 'prefix=',
 	category: '01',
-	description: 'Set the custom prefix for the server',
+	description: 'Set the custom prefix for the server (you need to have the `MANAGE CHANNELS` permission',
 	cooldown : false,
 	guildOnly: true,
 	NSFW: false,
 	args: true,
 	usage: '<new prefix/reset>',
 	run: async (client, message, args) => {
+
+		if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send('You can\'t use that!');
+		if(!message.guild.me.hasPermission('MANAGE_CHANNELS')) return message.channel.send('I don\'t have the right permissions.');
+
 		const data = await prefixModel.findOne({
 			GuildID: message.guild.id,
 		});
