@@ -28,10 +28,6 @@ module.exports = {
 			if (message.member.roles.cache.find(r => r.id == banRole)) {
 				return message.channel.send('you have been banned from this command by the server mods. Contact the staff team if you want this to change.');
 			}
-			// Command ban filter
-			if (message.author.id == '446') {
-				return message.channel.send('you have been banned from this command. Contact the developer if you want this to change.');
-			}
 			if (args[0]) {
 				let confession = args.slice(0).join(' ');
 
