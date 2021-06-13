@@ -30,11 +30,11 @@ module.exports = {
 				GuildID: message.guild.id,
 			});
 			if (args[0] == 'reset') {
-				return message.channel.send('You resetted the prefix. The default prefix isnt bad at all tbh.');
+				return message.channel.send('You resetted the ban role for the confession board.');
 			}
 			else {
 
-				message.channel.send(`The new prefix is now **\`${args[0]}\`**`);
+				message.channel.send(`The new confess ban role is now **\`${args[0]}\`**`);
 
 				let newData = new roleModel({
 					BanRole: args[0],
