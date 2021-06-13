@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const role = require('../../models/confess-ban');
 
 module.exports = {
 	name: 'confess',
@@ -11,12 +12,20 @@ module.exports = {
 	cooldown: 50,
 	run: async (client, message, args) => {
 		try {
+			// checks to see if the server where the command is being run has a ban role set
+			let banRole = null;
+			const data = await role.findOne({
+				GuildID: message.guild.id,
+			});
+			if (data) {
+				banRole = data.BanRole;
+			}
 			// ANTI SPAM COMMAND
 			if (message.deletable) message.delete();
 			if (args.length > 32) return message.channel.send('Im not gonna let you shitpost like that');
 
 			// Server ban filter (TEMPOARY
-			if (message.member.roles.cache.find(r => r.id === '761963923980288001')) {
+			if (message.member.roles.cache.find(r => r.id == banRole)) {
 				return message.channel.send('you have been banned from this command by the server mods. Contact the staff team if you want this to change.');
 			}
 			// Command ban filter

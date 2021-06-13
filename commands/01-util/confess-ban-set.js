@@ -23,6 +23,9 @@ module.exports = {
 
 		let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]);
 		if (!role) return message.channel.send('I\'m very confident that you did not mention a role');
+		if (role == message.mentions.roles.first()) {
+			role = role.id;
+		}
 
 
 		if (data) {
@@ -34,20 +37,20 @@ module.exports = {
 			}
 			else {
 
-				message.channel.send(`The new confess ban role is now **\`${args[0]}\`**`);
+				message.channel.send(`The new confess ban role is now **\`${role}\`**`);
 
 				let newData = new roleModel({
-					BanRole: args[0],
+					BanRole: role,
 					GuildID: message.guild.id,
 				});
 				newData.save();
 			}
 		}
 		else if (!data) {
-			message.channel.send(`The new prefix is now **\`${args[0]}\`**`);
+			message.channel.send(`The new confess ban role is now **\`${role}\`**`);
 
 			let newData = new roleModel({
-				BanRole: args[0],
+				BanRole: role,
 				GuildID: message.guild.id,
 			});
 			newData.save();
