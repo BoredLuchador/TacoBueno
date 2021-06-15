@@ -9,6 +9,7 @@ module.exports = {
 	args: true,
 	usage: '[channel/id] <ON/OFF>',
 	run: async (client, message, args) => {
+		// grabs arguments info
 		let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]) || undefined;
 		let ans = args[1];
 

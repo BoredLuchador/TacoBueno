@@ -11,20 +11,25 @@ module.exports = {
 	args: true,
 	usage: '<ping> [reason]',
 	run: async (client, message, args) => {
+		// checks for permissions
 		if(!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send('You can\'t use that!');
 		if(!message.guild.me.hasPermission('KICK_MEMBERS')) return message.channel.send('I don\'t have the right permissions.');
 
+		// looks for target
 		const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
+		// checks to see if the target is in the server and can be kicked
 		if(!member) return message.channel.send('Can\'t seem to find this user. Sorry \'bout that :/');
 		if(!member.kickable) return message.channel.send('This user can\'t be kicked. It is either because they are a mod/admin, or their highest role is higher than mine');
 
+		// prevents self kicking
 		if(member.id === message.author.id) return message.channel.send('Bruh, I\'m not dumb enough to let you kick yourself');
 
 		let reason = args.slice(1).join(' ');
 
 		if(reason === undefined) reason = 'Unspecified';
 
+		// bot kicks target
 		member.kick(reason)
 			.catch(err => {
 				if(err) return message.channel.send('Something went wrong');

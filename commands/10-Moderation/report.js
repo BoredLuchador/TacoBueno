@@ -9,8 +9,10 @@ module.exports = {
 	args: true,
 	usage: '<mention> <reason>',
 	run: async (client, message, args) => {
+		// attempts to delete author's message
 		if (message.deletable) message.delete();
 
+		// turn target into a message resolveable
 		let User = message.mentions.users.first() || null;
 
 		if (User == null) {

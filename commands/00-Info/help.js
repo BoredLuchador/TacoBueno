@@ -13,7 +13,7 @@ module.exports = {
 	args: false,
 	usage: '[command | alias of command]',
 	run: async (client, message, args) => {
-		// MONGODB PREFIX
+		// Gets guild data for prefixes
 		const data = await prefix.findOne({
 			GuildID: message.guild.id,
 		});
@@ -58,6 +58,8 @@ module.exports = {
 				)
 				.setTimestamp();
 			// New Pages will go here if there is a need to
+
+			// Command starts sending pages here //
 
 			await message.author.send(pg1)
 

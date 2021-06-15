@@ -13,17 +13,21 @@ module.exports = {
 	usage: '<new prefix/reset>',
 	run: async (client, message, args) => {
 
+		// checks for required permissions
 		if(!message.member.hasPermission('MANAGE_CHANNELS')) return message.channel.send('You can\'t use that!');
 		if(!message.guild.me.hasPermission('MANAGE_CHANNELS')) return message.channel.send('I don\'t have the right permissions.');
 
+		// gets data for the server prefix if it already exists
 		const data = await prefixModel.findOne({
 			GuildID: message.guild.id,
 		});
 		mongoose.set('useFindAndModify', false);
 
+		// checks length of new prefix
 		if (args[0].length > 5) return message.channel.send('Your new prefix must be under `5` characters!');
 
 
+		// creates new prefix or resets the prefix to bot default
 		if (data) {
 			await prefixModel.findOneAndRemove({
 				GuildID: message.guild.id,

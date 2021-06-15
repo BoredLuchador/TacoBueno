@@ -9,10 +9,12 @@ module.exports = {
 
 	run: async (client, message, args) => {
 		if (args[0]) {
+			// checks to see if the argument is an number
 			if (isNaN (args[0])) {
 				message.channel.send('That isn\'t an actual number, dummy.');
 			}
 			else {
+				// purges messages (currewntly way too spammy)
 				const msgamount = args[0];
 				let x = args[0];
 				try {

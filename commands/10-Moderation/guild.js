@@ -7,7 +7,9 @@ module.exports = {
 	description: 'Returns basic info about the server',
 	guildOnly: true,
 	run: async (client, message) => {
+		// creates a map of all of the role in a guild
 		let Roles = message.guild.roles.cache.map(roles => roles.name);
+
 		const embed = new MessageEmbed()
 			.setColor('RANDOM')
 			.setThumbnail(`${message.guild.iconURL({ format: 'png', dynamic: true })}`)
