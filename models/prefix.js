@@ -5,7 +5,10 @@ const PrefixSchema = new mongoose.Schema({
 		type: String,
 		default: '_',
 	},
-	GuildID: String,
+	GuildID: {
+		type: String,
+		required: true,
+	},
 });
 
 // eslint-disable-next-line no-unused-vars
