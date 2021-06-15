@@ -11,5 +11,4 @@ const PrefixSchema = new mongoose.Schema({
 	},
 });
 
-// eslint-disable-next-line no-unused-vars
-const MessageModel = module.exports = mongoose.model('prefixes', PrefixSchema);
+module.exports = mongoose.model('prefixes', PrefixSchema);
