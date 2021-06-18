@@ -35,6 +35,9 @@ You can open an issue in Github. Make sure you also send a error message if you 
 ### Discord
 This would be a more direct way to contact me for support, just know that I will have a much harder time managing through this server.
 [Link to Discord server](https://discord.gg/EGPC2Js)
+### Updates
+I put random ideas here and basically work from there, you can take a look to see if I have already considered it.
+[Link to Notion](https://www.notion.so/Bot-updates-2b56cb0bec3a463a9e72726106af240a)
 
 
 Other avuenes for support coming soon
