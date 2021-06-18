@@ -13,7 +13,7 @@ module.exports = {
 	usage: '<mention>',
 	run: async (client, message) => {
 
-		const subReddits = 'tacos';
+		const subReddits = ['tacos'];
 		const x = Math.floor((Math.random() * subReddits.length));
 		const img = await randomPuppy(subReddits[x]);
 
