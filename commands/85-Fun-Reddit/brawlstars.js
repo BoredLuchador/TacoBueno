@@ -7,7 +7,7 @@ module.exports = {
 	name: 'brawlstars',
 	aliases: 'rbs',
 	category: '85',
-	description: 'Attempts to get a image or video from various brawkstars themed subreddits, with some of them end up not being as good as you hoped.',
+	description: 'Attempts to get a image or video from various brawkstars themed subreddits, with some of them end up not being as good as you hoped. (currently broken)',
 	cooldown : false,
 	guildOnly: false,
 	NSFW: false,
