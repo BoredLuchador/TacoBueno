@@ -191,13 +191,8 @@ client.on('message', async (message) => {
 			setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
 			// This thing actually runs the command
-			try {
-				command.run (client, message, args);
-			}
-			catch (error) {
-				console.error(error);
-				message.reply(`We ran into a problem trying to run the command.\nDetails: ${error}\n If you keep getting this, please send this to the developer.`);
-			}
+			command.run (client, message, args);
+
 		}
 	}
 });
