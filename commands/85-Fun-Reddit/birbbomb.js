@@ -4,7 +4,7 @@ module.exports = {
 	name: 'birbbomb',
 	aliases: false,
 	category: '85',
-	description: 'Send 5 images of birds, much much else',
+	description: 'Send 5 images of birds, not much else',
 	cooldown: 5,
 	args: false,
 	usage: false,
