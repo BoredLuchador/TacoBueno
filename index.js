@@ -44,7 +44,9 @@ for (const file of eventFiles) {
 client.on('error', (e) => console.error(e));
 client.on('warn', (e) => console.warn(e));
 client.on('debug', (e) => console.info(e));
-client.on('unhandledRejection', error => console.error('Uncaught Promise Rejection', error));
+process.on('unhandledRejection', error => {
+	console.error('Unhandled promise rejection:', error);
+});
 // HOW TO COMMIT CHANGES
 // $ git add .
 // $ git commit -am "make it better"
