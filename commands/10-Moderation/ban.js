@@ -32,7 +32,7 @@ module.exports = {
 		// attempts to ban the target
 		member.ban(reason)
 			.catch(err => {
-				if(err) return message.channel.send('Something went wrong');
+				if(err) return message.channel.send('Something went wrong when trying to ban this person');
 			});
 
 		const banembed = new MessageEmbed()

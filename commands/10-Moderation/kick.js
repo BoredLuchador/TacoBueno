@@ -32,7 +32,7 @@ module.exports = {
 		// bot kicks target
 		member.kick(reason)
 			.catch(err => {
-				if(err) return message.channel.send('Something went wrong');
+				if(err) return message.channel.send('Something went wrong when trying to kick this person');
 			});
 
 		const kickembed = new MessageEmbed()

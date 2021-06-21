@@ -11,27 +11,37 @@ module.exports = {
 	args: false,
 	usage: false,
 	run: async (client, message) => {
-		message.react('🏳️‍🌈');
 
-		const prawlers = [
-			'https://cdn.discordapp.com/attachments/697488522600382556/697696314170802186/Untitled240_20191008175502.png',
-			'https://cdn.discordapp.com/attachments/697488522600382556/697696351231803432/32443232443243244323432434234232434223443432324.PNG',
-			'https://cdn.discordapp.com/attachments/697488522600382556/698102661177933854/2Q.png',
-			'https://cdn.discordapp.com/attachments/697488522600382556/698102715716468766/Z.png',
-			'https://cdn.discordapp.com/attachments/697488522600382556/698102785866203137/images.png',
-			'https://cdn.discordapp.com/attachments/697488522600382556/698102866321080360/images.png',
-			'https://cdn.discordapp.com/attachments/697488522600382556/698103006062706798/images.png',
-			'https://cdn.discordapp.com/attachments/697488522600382556/698103106067759124/Z.png',
-			'https://cdn.discordapp.com/attachments/700053698100985886/700229861838422056/image0.png',
-			'https://cdn.discordapp.com/attachments/700053698100985886/700229918566514729/image0.png',
-			'https://cdn.discordapp.com/attachments/700053698100985886/700229916670558268/image0.png',
+		try {
+			message.react('🏳️‍🌈');
 
-		];
-		const x = Math.floor((Math.random() * prawlers.length));
-		const msg = new MessageEmbed()
-			.setColor('RANDOM')
-			.setImage(`${prawlers[x]}`);
+			const prawlers = [
+				'https://cdn.discordapp.com/attachments/697488522600382556/697696314170802186/Untitled240_20191008175502.png',
+				'https://cdn.discordapp.com/attachments/697488522600382556/697696351231803432/32443232443243244323432434234232434223443432324.PNG',
+				'https://cdn.discordapp.com/attachments/697488522600382556/698102661177933854/2Q.png',
+				'https://cdn.discordapp.com/attachments/697488522600382556/698102715716468766/Z.png',
+				'https://cdn.discordapp.com/attachments/697488522600382556/698102785866203137/images.png',
+				'https://cdn.discordapp.com/attachments/697488522600382556/698102866321080360/images.png',
+				'https://cdn.discordapp.com/attachments/697488522600382556/698103006062706798/images.png',
+				'https://cdn.discordapp.com/attachments/697488522600382556/698103106067759124/Z.png',
+				'https://cdn.discordapp.com/attachments/700053698100985886/700229861838422056/image0.png',
+				'https://cdn.discordapp.com/attachments/700053698100985886/700229918566514729/image0.png',
+				'https://cdn.discordapp.com/attachments/700053698100985886/700229916670558268/image0.png',
 
-		message.channel.send(msg);
+			];
+			const x = Math.floor((Math.random() * prawlers.length));
+			const msg = new MessageEmbed()
+				.setColor('RANDOM')
+				.setImage(`${prawlers[x]}`);
+
+			message.channel.send(msg);
+		}
+		catch (error) {
+
+			console.error(error);
+			message.channel.send(`This Command seems to be broken. *make sure the error message below is sent to the developer either by opening the issue in the github page or with the \`bug\` command.*\n\`\`\`Error details:\n${error}\nCommand used: ${message.content}\`\`\``);
+
+		}
+
 	},
 };

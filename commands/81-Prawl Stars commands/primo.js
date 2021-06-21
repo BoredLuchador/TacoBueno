@@ -11,11 +11,20 @@ module.exports = {
 	args: false,
 	usage: false,
 	run: async (client, message) => {
-		message.react('🏳️‍🌈');
-		const msg = new MessageEmbed()
-			.setColor(0xFFAD60)
-			.setDescription('Hope he won\'t jump too far');
+		try {
+			message.react('🏳️‍🌈');
+			const msg = new MessageEmbed()
+				.setColor(0xFFAD60)
+				.setDescription('Hope he won\'t jump too far');
 
-		message.channel.send(msg);
+			message.channel.send(msg);
+		}
+		catch (error) {
+
+			console.error(error);
+			message.channel.send(`This Command seems to be broken. *make sure the error message below is sent to the developer either by opening the issue in the github page or with the \`bug\` command.*\n\`\`\`Error details:\n${error}\nCommand used: ${message.content}\`\`\``);
+
+		}
+
 	},
 };
